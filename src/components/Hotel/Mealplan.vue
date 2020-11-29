@@ -6,7 +6,7 @@
       Verpflegung <span class="font-brand text-brand">by GioV</span>
     </h3>
 
-    <div class="bg-gray-950 bg-opacity-80 py-4 px-8 rounded-lg">
+    <div class="bg-gray-950 py-4 px-8 rounded-lg">
       <div class="flex flex-wrap mt-4">
         <div class="w-full md:w-1/3 text-center md:text-left">
           <router-link

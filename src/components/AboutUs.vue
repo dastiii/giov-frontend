@@ -6,11 +6,11 @@
       class="px-4 pt-4 pb-8 bg-gray-950 bg-opacity-80 rounded-none md:rounded-lg"
     >
       <div class="w-full">
-        <div>
+        <div class="px-4">
           <p class="text-gray-100 py-4 font-sans text-lg leading-loose">
             Der Grundstein unserer Erfolgsgeschichte wurde maßgeblich im Juli
             2019 durch Peter Flowers und Dylan Duncan gelegt. Seit der Gründung
-            ging es stets bergauf, wodurch wir mittlerweile die gesamte
+            konnten wir immer weiter wachsen, wodurch wir mittlerweile die gesamte
             Lieferkette für unser Restaurant abbilden und dadurch
             <b>beste Preise</b> und <b>Qualität</b> garantieren können.
           </p>

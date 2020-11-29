@@ -2,7 +2,7 @@
   <div class="mt-8 md:mt-20">
     <h3 class="text-white text-3xl font-brand -mb-1 pl-4">Deine Bestellung</h3>
 
-    <div class="px-4 pt-4 bg-gray-950 bg-opacity-85 rounded-none md:rounded-lg">
+    <div class="px-4 pt-4 bg-gray-950 bg-opacity-80 rounded-none md:rounded-lg">
       <div
         v-if="isLoading"
         class="container text-gray-100 text-center mx-auto my-16"

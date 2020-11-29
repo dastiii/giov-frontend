@@ -6,7 +6,7 @@
       class="flex flex-wrap lg:flex-no-wrap w-full bg-gray-950 bg-opacity-80 rounded-none md:rounded-lg"
     >
       <div class="w-full lg:w-8/12 p-4">
-        <p class="text-lg text-gray-100 py-4 font-sans leading-loose">
+        <p class="text-lg text-gray-100 py-4 px-4 font-sans leading-loose">
           Unten findest du eine Auswahl an Getränken und Speisen, die wir
           täglich frisch zubereiten und für dich und deinen Hunger in unserem
           Restaurant zum Verzehr bereithalten. Du hättest gerne etwas
@@ -15,7 +15,7 @@
         </p>
 
         <div
-          class="md:ml-2 py-4 md:rounded text-lg leading-tight text-gray-100 my-4 hover:text-underline font-medium flex items-center"
+          class="md:ml-2 py-4 px-4 md:rounded text-lg leading-tight text-gray-100 my-4 hover:text-underline font-medium flex items-center"
         >
           <font-awesome-icon
             :icon="['fad', 'info-square']"

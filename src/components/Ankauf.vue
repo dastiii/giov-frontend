@@ -26,7 +26,7 @@
         >
       </p>
 
-      <p class="text-gray-100 leading-loose mb-8 text-lg">
+      <p class="text-gray-100 px-4 leading-loose mb-8 text-lg">
         Unten sind die Rohstoffe aufgelistet, welche wir an unserem Lagerhaus zu
         fairen Preisen ankaufen. Basierend auf unserem Bedarf an bestimmten
         Rohstoffen, können die dir angebotenen Konditionen jederzeit variieren.
@@ -36,7 +36,7 @@
       </p>
 
       <div
-        class="py-4 md:rounded leading-tight text-gray-100 md:mx-4 my-4 hover:text-underline font-medium flex items-center"
+        class="py-4 px-4 md:rounded leading-tight text-gray-100 md:mx-4 my-4 hover:text-underline font-medium flex items-center"
       >
         <font-awesome-icon
           :icon="['fad', 'info-square']"
