@@ -1,11 +1,24 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from "vue"
+import Vuex from "vuex"
 
-Vue.use(Vuex);
+import service from "./modules/service"
+import layout from "./modules/layout"
+import rooms from "./modules/rooms"
+
+Vue.use(Vuex)
+
+const state = {}
+const mutations = {}
+const getters = {}
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {}
+    state,
+    getters,
+    mutations,
+    modules: {
+        service,
+        layout,
+        rooms
+    },
+    plugins: []
 });

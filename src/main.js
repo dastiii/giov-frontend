@@ -3,8 +3,21 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "./registerServiceWorker";
+import "./app.css";
+import axios from "axios";
+import "./icons";
+import VueScreen from "vue-screen";
 
 Vue.config.productionTip = false;
+Vue.prototype.$http = axios;
+Vue.prototype.$ASSET_PATH = process.env.ASSET_PATH || "/";
+Vue.prototype.$formatCurrency = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+  minimumFractionDigits: 2
+});
+
+Vue.use(VueScreen);
 
 new Vue({
   router,

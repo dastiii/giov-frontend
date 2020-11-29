@@ -1,32 +1,61 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <component :is="currentLayout">
+    <keep-alive>
+      <transition name="fade-in-left" mode="out-in" appear>
+        <router-view></router-view>
+      </transition>
+    </keep-alive>
+  </component>
 </template>
 
+<script>
+export default {
+  name: 'App',
+  computed: {
+    currentLayout() {
+      return this.$store.getters["layout/currentLayout"];
+    }
+  },
+}
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.pulse {
+  display: block;
+  border-radius: 50%;
+  background: theme('colors.brand');
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(73, 145, 81, 0.7);
+  animation: pulse 2s infinite;
+  font-size: 8px;
+}
+.pulse:hover {
+  animation: none;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(73, 145, 81, 0.8);
+  }
+  70% {
+    -webkit-box-shadow: 0 0 0 10px rgba(73, 145, 81, 0.4);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 0 rgba(73, 145, 81, 0);
+  }
+}
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(73, 145, 81, 0.8);
+    box-shadow: 0 0 0 0 rgba(73, 145, 81, 0.4);
+  }
+  70% {
+    -moz-box-shadow: 0 0 0 10px rgba(73, 145, 81, 0.4);
+    box-shadow: 0 0 0 10px rgba(73, 145, 81, 0);
+  }
+  100% {
+    -moz-box-shadow: 0 0 0 0 rgba(73, 145, 81, 0);
+    box-shadow: 0 0 0 0 rgba(73, 145, 81, 0);
   }
 }
 </style>
