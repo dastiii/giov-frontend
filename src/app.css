@@ -68,6 +68,14 @@
   background-position: center center;
 }
 
+.hotel-background {
+  background-image: url('./assets/hotel_background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+}
+
 @keyframes fadeInLeft {
   from {
     transform: translate3d(-40px, 0, 0);

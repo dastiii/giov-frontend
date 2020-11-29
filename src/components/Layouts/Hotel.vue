@@ -1,5 +1,5 @@
 <template>
-  <div class="page-background min-h-screen flex flex-col">
+  <div class="hotel-background min-h-screen flex flex-col">
     <visible when-hidden="#site-header">
       <header
         class="bg-opacity-75 bg-gray-950 hidden lg:block z-20 shadow-md fixed top-0 left-0 w-full"
@@ -250,12 +250,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.page-background {
-  background-image: url("../../assets/hotel_background.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
-}
-</style>
+<style scoped></style>
