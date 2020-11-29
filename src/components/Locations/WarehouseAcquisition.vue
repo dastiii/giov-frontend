@@ -37,7 +37,7 @@
           class="text-white"
           :icon="['fad', 'phone']"
         ></font-awesome-icon>
-        1822-44200081
+        1822-76770759
       </p>
     </div>
   </div>
