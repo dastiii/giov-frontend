@@ -3,13 +3,9 @@ import store from "../store";
 const Home = () =>
   import(/* webpackChunkName: "routes/home" */ "../components/Home.vue");
 const AboutUs = () =>
-  import(
-    /* webpackChunkName: "routes/aboutus" */ "../components/AboutUs.vue"
-  );
+  import(/* webpackChunkName: "routes/aboutus" */ "../components/AboutUs.vue");
 const Location = () =>
-  import(
-    /* webpackChunkName: "routes/contact" */ "../components/Contact.vue"
-  );
+  import(/* webpackChunkName: "routes/contact" */ "../components/Contact.vue");
 const Menu = () =>
   import(/* webpackChunkName: "routes/menu" */ "../components/Preise.vue");
 const Ankauf = () =>
@@ -221,7 +217,7 @@ export default {
       return;
     }
 
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       setTimeout(() => {
         resolve({ x: 0, y: 0 });
       }, 500);

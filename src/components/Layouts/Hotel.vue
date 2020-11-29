@@ -130,7 +130,7 @@
             >
             <router-link
               :to="{ name: 'hotel.benefits' }"
-              class="my-2 lg:my-0 block py-2 px-3 lg:ml-2 hover:bg-brand-hotel hover:text-black font-brand-hotel"
+              class="my-2 lg:my-0 whitespace-nowrap block py-2 px-3 lg:ml-2 hover:bg-brand-hotel hover:text-black font-brand-hotel"
               active-class="bg-brand-hotel text-black"
               >Deine&nbsp;Vorteile</router-link
             >
@@ -142,7 +142,7 @@
             >
             <router-link
               :to="{ name: 'home' }"
-              class="my-2 lg:my-0 block py-2 pl-3 pr-4 lg:ml-2 hover:bg-brand hover:text-white font-brand"
+              class="my-2 lg:my-0 whitespace-nowrap block py-2 pl-3 pr-4 lg:ml-2 hover:bg-brand hover:text-white font-brand"
               exact
               >zum&nbsp;Restaurant</router-link
             >

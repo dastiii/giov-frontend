@@ -1,9 +1,34 @@
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { faUtensils, faBoxes, faSpinner, faSmileWink, faCircle, faFilePdf, faInfoSquare, faCheckCircle, faEmptySet, faSpinnerThird, faTimesCircle, faMeat, faPhone, faHome, faTruckLoading, faSearch, faBoxCheck, faFileContract, faHatChef, faWarehouseAlt, faBoxOpen, faWindTurbine, faPlay } from '@fortawesome/pro-duotone-svg-icons';
-import Vue from 'vue';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import {
+  faUtensils,
+  faBoxes,
+  faSpinner,
+  faSmileWink,
+  faCircle,
+  faFilePdf,
+  faInfoSquare,
+  faCheckCircle,
+  faEmptySet,
+  faSpinnerThird,
+  faTimesCircle,
+  faMeat,
+  faPhone,
+  faHome,
+  faTruckLoading,
+  faSearch,
+  faBoxCheck,
+  faFileContract,
+  faHatChef,
+  faWarehouseAlt,
+  faBoxOpen,
+  faWindTurbine,
+  faPlay
+} from "@fortawesome/pro-duotone-svg-icons";
+import Vue from "vue";
 
-library.add(faSpinner,
+library.add(
+  faSpinner,
   faBoxes,
   faSmileWink,
   faCircle,
@@ -28,6 +53,6 @@ library.add(faSpinner,
   faUtensils
 );
 
-Vue.component('font-awesome-icon', FontAwesomeIcon);
+Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 export default library;
