@@ -25,7 +25,7 @@
               >
               <router-link
                 :to="{ name: 'hotel.benefits' }"
-                class="ml-4 px-2 py-1 hover:bg-brand-hotel hover:text-black font-brand-hotel"
+                class="ml-4 whitespace-nowrap px-2 py-1 hover:bg-brand-hotel hover:text-black font-brand-hotel"
                 active-class="bg-brand-hotel text-black"
                 >Deine&nbsp;Vorteile</router-link
               >
@@ -37,7 +37,7 @@
               >
               <router-link
                 :to="{ name: 'home' }"
-                class="ml-4 pl-2 pr-3 py-1 hover:bg-brand hover:text-white font-brand"
+                class="ml-4 whitespace-nowrap pl-2 pr-3 py-1 hover:bg-brand hover:text-white font-brand"
                 exact
                 >zum&nbsp;Restaurant</router-link
               >
