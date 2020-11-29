@@ -67,11 +67,11 @@
         />
       </vue-load-image>
 
-      <h2 class="text-center leading-loose font-brand-hotel text-4xl text-white">
+      <h2 class="text-center leading-relaxed font-brand-hotel text-4xl text-white">
         All' diese Vorteile erhältst du für
         <strong class="text-brand-hotel">nur $30 pro Stunde!</strong>
       </h2>
-      <h2 class="text-center leading-loose font-brand-hotel text-4xl text-white">
+      <h2 class="text-center leading-relaxed font-brand-hotel text-4xl text-white">
         <strong class="text-brand-hotel">Worauf wartest du?</strong> Sicher dir
         noch heute dein Zimmer.
       </h2>
