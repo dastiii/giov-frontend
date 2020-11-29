@@ -57,7 +57,7 @@
           <div v-if="items.length > 0">
             <div
               class="flex items-center odd:bg-gray-900 even:bg-gray-950 text-gray-100 first:rounded-t-lg last:rounded-b-lg"
-              v-for="(meal, index) in items"
+              v-for="meal in items"
               :key="meal.id"
             >
               <div class="p-2 py-3 flex-1 flex items-center">
@@ -89,7 +89,7 @@
                 <input
                   :aria-label="`Menge für ${meal.product.name}`"
                   type="number"
-                  v-model="amounts[index]"
+                  v-model="meal['amount']"
                   placeholder="0"
                   min="1"
                   class="bg-gray-800 w-16 py-1 px-2 rounded"
@@ -108,7 +108,7 @@
           </h3>
 
           <div
-            v-if="cartEmpty"
+            v-if="cartItems.length <= 0"
             class="md:rounded-lg bg-gray-900 p-4 text-gray-300"
           >
             Du hast noch keine Produkte ausgewählt
@@ -117,30 +117,30 @@
           <div v-else>
             <div
               class="text-gray-100 bg-gray-900 border-b-2 border-gray-950 flex justify-between items-center first:rounded-t-lg"
-              v-for="(amount, index) in cartItems"
-              :key="index"
+              v-for="meal in cartItems"
+              :key="meal.id"
             >
               <div class="p-4 flex items-center flex-1">
                 <span
                   class="font-light"
-                  v-text="`${amount}x ${items[index].product.name}`"
+                  v-text="`${meal.amount}x ${meal.product.name}`"
                 ></span>
               </div>
               <div
                 class="font-mono p-4 text-left font-medium"
                 v-text="
                   $formatCurrency.format(
-                    amount *
-                      (items[index].featured
-                        ? items[index].sale_price / 100
-                        : items[index].price / 100)
+                    meal.amount *
+                      (meal.featured
+                        ? meal.sale_price / 100
+                        : meal.price / 100)
                   )
                 "
               ></div>
             </div>
           </div>
 
-          <div v-if="!cartEmpty">
+          <div v-if="cartItems.length > 0">
             <div
               class="p-3 pr-4 pt-2 pb-0 text-right text-gray-100 font-medium border-t-4 border-brand border-double"
             >
@@ -234,19 +234,17 @@ export default {
 
   computed: {
     cartItems() {
-      return this.amounts.filter(amount => amount > 0);
+      return this.items.filter(meal => meal.amount);
     },
 
     cartEmpty() {
-      return !this.amounts.find(amount => {
-        return amount > 0;
-      });
+      return this.cartItems.length <= 0;
     },
 
     totalAmount() {
       let totalAmount = 0;
 
-      this.amounts.forEach((amount) => {
+      this.amounts.forEach(amount => {
         if (!amount || amount <= 0) {
           return false;
         }
@@ -260,16 +258,16 @@ export default {
     totalCartAmount() {
       let totalAmount = 0;
 
-      this.amounts.forEach((amount, index) => {
-        if (!amount || amount <= 0) {
+      this.cartItems.forEach(meal => {
+        if (!meal.amount || meal.amount <= 0) {
           return false;
         }
 
         totalAmount +=
-          amount *
-          (this.items[index].featured
-            ? this.items[index].sale_price
-            : this.items[index].price);
+          meal.amount *
+          (meal.featured
+            ? meal.sale_price
+            : meal.price);
       });
 
       return totalAmount;
@@ -278,12 +276,12 @@ export default {
     totalCartWeight() {
       let totalWeight = 0;
 
-      this.amounts.forEach((amount, index) => {
-        if (!amount || amount <= 0) {
+      this.cartItems.forEach(meal => {
+        if (!meal.amount || meal.amount <= 0) {
           return false;
         }
 
-        totalWeight += amount * this.items[index].product.weight;
+        totalWeight += meal.amount * meal.product.weight;
       });
 
       return totalWeight.toFixed(1);
