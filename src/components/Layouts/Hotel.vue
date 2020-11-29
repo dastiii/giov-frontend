@@ -252,7 +252,7 @@ export default {
 
 <style scoped>
 .page-background {
-  background-image: url("./../../assets/hotel_background.jpg");
+  background-image: url("../../assets/hotel_background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;

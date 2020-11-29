@@ -4,11 +4,6 @@ module.exports = {
   purge: ["./src/components/**/*.vue", "./src/views/**/*.vue"],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    inset: {
-      "0": 0,
-      auto: "auto",
-      "4": "4rem"
-    },
     extend: {
       fontFamily: {
         brand: ["Kaushan Script", ...defaultTheme.fontFamily.sans],
