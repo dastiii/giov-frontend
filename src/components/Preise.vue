@@ -61,7 +61,20 @@
               :key="meal.id"
             >
               <div class="p-2 py-3 flex-1 flex items-center">
-                <img :src="meal.product.icon_url" class="h-10 mr-3" alt="" />
+                <vue-load-image>
+                  <img slot="image" :src="meal.product.icon_url" class="h-10 mr-3"  alt=""/>
+                  <font-awesome-icon
+                    slot="preloader"
+                    class="mx-auto text-xl text-gray-400 h-10 mr-3"
+                    :icon="['fad', 'spinner-third']"
+                    spin
+                  ></font-awesome-icon>
+                  <font-awesome-icon
+                    slot="error"
+                    class="mx-auto text-xl text-gray-400 h-10 mr-3"
+                    :icon="['fad', 'empty-set']"
+                  ></font-awesome-icon>
+                </vue-load-image>
                 <span class="hidden md:block" v-text="meal.product.name"></span>
               </div>
               <div class="px-2 font-medium">
@@ -200,6 +213,11 @@ export default {
       type: Number,
       default: 100
     }
+  },
+
+  components: {
+    VueLoadImage: () =>
+      import(/* webpackChunkName: "modules/vue-load-image" */ "vue-load-image")
   },
 
   data() {

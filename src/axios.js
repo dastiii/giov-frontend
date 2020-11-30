@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 let domain =
   process.env.NODE_ENV === "production" ? "giov.restaurant" : "giov.test";
