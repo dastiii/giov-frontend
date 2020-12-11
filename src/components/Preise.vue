@@ -172,12 +172,11 @@
 </template>
 
 <script>
+import ContentContainer from "@/components/Common/ContentContainer";
+
 export default {
   components: {
-    ContentContainer: () =>
-      import(
-        /* webpackChunkName: "common/content-container" */ "./Common/ContentContainer"
-      )
+    ContentContainer
   },
 
   created() {

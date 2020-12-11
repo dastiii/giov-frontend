@@ -123,8 +123,6 @@
 <script>
 export default {
   created() {
-    this.$store.dispatch("layout/changeLayout", "restaurant");
-
     this.loadItems();
     this.priceList = document
       .querySelector("meta[name='pdf-pricelist']")
