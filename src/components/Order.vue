@@ -1,7 +1,5 @@
 <template>
-  <div class="mt-8 md:mt-20">
-    <h3 class="text-white text-3xl font-brand -mb-1 pl-4">Deine Bestellung</h3>
-
+  <content-container heading="Deine Bestellung">
     <div class="px-4 pt-4 bg-gray-950 bg-opacity-80 rounded-none md:rounded-lg">
       <div
         v-if="isLoading"
@@ -347,14 +345,17 @@
         </div>
       </div>
     </div>
-  </div>
+  </content-container>
 </template>
 
 <script>
+import ContentContainer from "@/components/Common/ContentContainer";
+
 export default {
-  created() {
-    this.$store.dispatch("layout/changeLayout", "restaurant");
+  components: {
+    ContentContainer
   },
+
   mounted() {
     this.fetchOrder();
   },
@@ -393,7 +394,7 @@ export default {
         total += product.pivot.quantity * product.weight;
       });
 
-      return total;
+      return this.$formatWeight.format(total);
     }
   },
 

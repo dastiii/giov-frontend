@@ -1,22 +1,20 @@
 <template>
-  <component :is="currentLayout">
-    <keep-alive>
-      <transition name="fade-in-left" mode="out-in" appear>
+  <restaurant>
+    <transition name="fade-in-left" mode="out-in" appear>
+      <keep-alive>
         <router-view></router-view>
-      </transition>
-    </keep-alive>
-  </component>
+      </keep-alive>
+    </transition>
+  </restaurant>
 </template>
 
 <script>
+import Restaurant from "@/components/Layouts/Restaurant";
+
 export default {
-  name: 'App',
-  computed: {
-    currentLayout() {
-      return this.$store.getters["layout/currentLayout"];
-    }
-  },
-}
+  name: "App",
+  components: { Restaurant }
+};
 </script>
 
 <style lang="scss">

@@ -3,13 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import {
   faUtensils,
   faBoxes,
-  faSpinner,
   faSmileWink,
   faCircle,
-  faFilePdf,
   faInfoSquare,
   faCheckCircle,
-  faEmptySet,
   faSpinnerThird,
   faTimesCircle,
   faMeat,
@@ -20,7 +17,6 @@ import {
   faBoxCheck,
   faFileContract,
   faHatChef,
-  faWarehouseAlt,
   faBoxOpen,
   faWindTurbine,
   faPlay
@@ -28,12 +24,9 @@ import {
 import Vue from "vue";
 
 library.add(
-  faSpinner,
   faBoxes,
   faSmileWink,
   faCircle,
-  faFilePdf,
-  faEmptySet,
   faCheckCircle,
   faInfoSquare,
   faSpinnerThird,
@@ -46,7 +39,6 @@ library.add(
   faBoxCheck,
   faFileContract,
   faHatChef,
-  faWarehouseAlt,
   faBoxOpen,
   faWindTurbine,
   faPlay,

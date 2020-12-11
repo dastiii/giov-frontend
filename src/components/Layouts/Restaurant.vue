@@ -52,12 +52,6 @@
                 class="ml-4 pl-2 pr-3 py-1 hover:bg-brand"
                 >Kontakt</router-link
               >
-              <router-link
-                :to="{ name: 'hotel.home' }"
-                class="ml-4 px-2 py-1 hover:bg-brand-hotel hover:text-black font-brand-hotel"
-                active-class="bg-brand-hotel text-black"
-                >zum&nbsp;Hotel</router-link
-              >
             </nav>
           </div>
         </div>
@@ -131,12 +125,6 @@
               class="my-2 lg:my-0 block py-2 pl-3 pr-4 lg:ml-2 hover:bg-brand"
               >Kontakt</router-link
             >
-            <router-link
-              :to="{ name: 'hotel.home' }"
-              class="my-2 lg:my-0 block py-2 px-3 lg:ml-2 hover:bg-brand-hotel hover:text-black font-brand-hotel whitespace-nowrap"
-              active-class="bg-brand-hotel text-black"
-              >zum&nbsp;Hotel</router-link
-            >
           </nav>
         </div>
       </div>
@@ -196,15 +184,12 @@
 </template>
 
 <script>
+import Visible from "@/components/Visible";
+
 export default {
   name: "Restaurant",
   components: {
-    Visible: () =>
-      import(/* webpackChunkName: "modules/visible" */ "../Visible")
-  },
-
-  created() {
-    document.title = "Dein Lieblingsrestaurant.";
+    Visible
   },
 
   mounted() {

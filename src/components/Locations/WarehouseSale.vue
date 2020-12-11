@@ -46,13 +46,12 @@
 </template>
 
 <script>
+import LocationImageWrapper from "@/components/Locations/Partials/LocationImageWrapper";
+
 export default {
   name: "WarehouseSale",
   components: {
-    LocationImageWrapper: () =>
-      import(
-        /* webpackChunkName: "js/partials/location-image-wrapper" */ "./Partials/LocationImageWrapper.vue"
-      )
+    LocationImageWrapper
   },
   beforeRouteLeave(to, from, next) {
     if (

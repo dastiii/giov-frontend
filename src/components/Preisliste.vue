@@ -1,17 +1,17 @@
 <template>
   <div class="mt-8 md:mt-20">
-    <div class="flex flex-wrap md:flex-no-wrap justify-between">
+    <div class="flex flex-wrap md:flex-no-wrap justify-between items-end">
       <h3
         class="w-full md:w-auto text-white text-3xl font-brand mb-2 md:-mb-1 pl-4"
       >
         Preisliste
       </h3>
-      <div class="w-full md:w-auto flex items-center">
+      <div class="w-full md:w-auto flex items-stretch">
         <div
-          class="py-2 bg-gray-900 bg-opacity-75 pl-4 rounded-none md:rounded-tl"
+          class="py-4 bg-brand bg-opacity-75 px-4 rounded-none md:rounded-tl"
         >
           <font-awesome-icon
-            class="text-gray-100"
+            class="text-white text-lg"
             :icon="['fad', 'search']"
           ></font-awesome-icon>
         </div>
@@ -34,26 +34,6 @@
         Die Lieferzeit kann je nach Auslastung variieren, beläuft sich i.d.R.
         allerdings auf wenige Tage.
       </p>
-
-      <div
-        class="py-4 md:rounded leading-tight text-gray-100 md:mx-4 my-4 hover:text-underline font-medium flex items-center"
-      >
-        <font-awesome-icon
-          :icon="['fad', 'file-pdf']"
-          class="text-2xl text-blue-500 font-medium mr-4"
-        ></font-awesome-icon>
-        <span
-          >Du brauchst unsere Preisliste als PDF-Datei?
-          <a
-            :href="priceList"
-            target="_blank"
-            class="underline hover:text-brand"
-            >Hier</a
-          >
-          findest du sie, bedenke jedoch, dass die Preise darin unter Umständen
-          nicht aktuell sein können.</span
-        >
-      </div>
 
       <div v-if="isLoading" class="w-full text-center mt-16">
         <font-awesome-icon

@@ -1,7 +1,5 @@
 <template>
-  <div class="mt-8 md:mt-20">
-    <h3 class="text-white text-3xl font-brand -mb-1 pl-4">Ankauf</h3>
-
+  <content-container heading="Ankauf">
     <div
       class="px-4 pt-8 pb-8 bg-gray-950 bg-opacity-80 rounded-none md:rounded-lg"
     >
@@ -13,10 +11,10 @@
           :icon="['fad', 'smile-wink']"
           class="text-4xl mr-4 mb-4 md:mb-0"
         ></font-awesome-icon>
-        <span
+        <span class="text-lg"
           >Du willst etwas verkaufen? Das trifft sich super. Wir sind gerade
           erreichbar und kaufen dir deine Ware gerne an unserem Lagerhaus ab.
-          Ruf' einfach unter der 1822-44200081 an oder komm direkt vorbei. Den
+          Ruf' einfach unter der 1822-76770759 an und komm' direkt vorbei. Den
           Standort findest du
           <router-link
             :to="{ name: 'location.warehouse-acquisition' }"
@@ -94,42 +92,34 @@
 
       <div class="-mx-4 md:mx-0 mb-8">
         <div>
-          <product-aquisition-list
-            :items="highPriorityItems"
-          ></product-aquisition-list>
+          <product-list :items="highPriorityItems"></product-list>
         </div>
       </div>
       <div class="-mx-4 md:mx-0 mb-8">
         <div>
-          <product-aquisition-list
-            :items="normalPriorityItems"
-          ></product-aquisition-list>
+          <product-list :items="normalPriorityItems"></product-list>
         </div>
       </div>
       <div class="-mx-4 md:mx-0 mb-8">
         <div>
-          <product-aquisition-list
-            :items="lowPriorityItems"
-          ></product-aquisition-list>
+          <product-list :items="lowPriorityItems"></product-list>
         </div>
       </div>
       <div class="text-gray-500 text-xs text-center mt-4">
         * Bei allen angegebenen Preisen handelt es sich um Bruttopreise.
       </div>
     </div>
-  </div>
+  </content-container>
 </template>
 
 <script>
+import ProductList from "@/components/Ankauf/ProductList";
+import ContentContainer from "@/components/Common/ContentContainer";
+
 export default {
-  created() {
-    this.$store.dispatch("layout/changeLayout", "restaurant");
-  },
   components: {
-    ProductAquisitionList: () =>
-      import(
-        /* webpackChunkName: "modules/acquisition-product-list" */ "./Ankauf/ProductList"
-      )
+    ProductList,
+    ContentContainer
   },
 
   mounted() {

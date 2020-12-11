@@ -10,11 +10,16 @@ import VueScreen from "vue-screen";
 
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios;
-Vue.prototype.$ASSET_PATH = process.env.ASSET_PATH || "/";
 Vue.prototype.$formatCurrency = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",
-  minimumFractionDigits: 2
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2
+});
+Vue.prototype.$formatWeight = new Intl.NumberFormat("en-US", {
+  style: "decimal",
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2
 });
 
 Vue.use(VueScreen);

@@ -1,7 +1,5 @@
 <template>
-  <div class="mt-8 md:mt-20">
-    <h3 class="text-white text-3xl font-brand -mb-1 pl-4">So findest du uns</h3>
-
+  <content-container heading="So findest du uns">
     <div
       class="flex flex-wrap lg:flex-no-wrap bg-gray-950 bg-opacity-80 rounded-none md:rounded-lg"
     >
@@ -102,14 +100,14 @@
         </transition>
       </div>
     </div>
-  </div>
+  </content-container>
 </template>
 
 <script>
+import ContentContainer from "@/components/Common/ContentContainer";
+
 export default {
-  created() {
-    this.$store.dispatch("layout/changeLayout", "restaurant");
-  },
+  components: { ContentContainer },
   computed: {
     navEvent() {
       if (

@@ -1,7 +1,5 @@
 <template>
-  <div class="mt-8 md:mt-20">
-    <h3 class="text-white text-3xl font-brand -mb-1 pl-4">Speisekarte</h3>
-
+  <content-container heading="Speisekarte">
     <div
       class="flex flex-wrap lg:flex-no-wrap w-full bg-gray-950 bg-opacity-80 rounded-none md:rounded-lg"
     >
@@ -61,27 +59,14 @@
               :key="meal.id"
             >
               <div class="p-2 py-3 flex-1 flex items-center">
-                <vue-load-image>
-                  <img slot="image" :src="meal.product.icon_url" class="h-10 mr-3"  alt=""/>
-                  <font-awesome-icon
-                    slot="preloader"
-                    class="mx-auto text-xl text-gray-400 h-10 mr-3"
-                    :icon="['fad', 'spinner-third']"
-                    spin
-                  ></font-awesome-icon>
-                  <font-awesome-icon
-                    slot="error"
-                    class="mx-auto text-xl text-gray-400 h-10 mr-3"
-                    :icon="['fad', 'empty-set']"
-                  ></font-awesome-icon>
-                </vue-load-image>
+                <img :src="meal.product.icon_url" class="h-10 mr-3" alt="" />
                 <span class="hidden md:block" v-text="meal.product.name"></span>
               </div>
               <div class="px-2 font-medium">
                 <div class="flex justify-end font-mono">
                   <div
                     :class="meal.featured ? 'text-gray-300 line-through' : ''"
-                    v-text="formatCurrency(meal.price)"
+                    v-text="$formatCurrency.format(meal.price)"
                   ></div>
                   <div
                     v-if="meal.featured"
@@ -94,7 +79,7 @@
                   ></div>
                   <div
                     v-if="meal.featured"
-                    v-text="formatCurrency(meal.sale_price)"
+                    v-text="$formatCurrency.format(meal.sale_price)"
                   ></div>
                 </div>
               </div>
@@ -105,6 +90,7 @@
                   v-model="meal['amount']"
                   placeholder="0"
                   min="1"
+                  max="9999"
                   class="bg-gray-800 w-16 py-1 px-2 rounded"
                 />
               </div>
@@ -144,9 +130,7 @@
                 v-text="
                   $formatCurrency.format(
                     meal.amount *
-                      (meal.featured
-                        ? meal.sale_price / 100
-                        : meal.price / 100)
+                      (meal.featured ? meal.sale_price / 100 : meal.price / 100)
                   )
                 "
               ></div>
@@ -169,14 +153,6 @@
               v-text="`Gewicht: ${totalCartWeight}kg`"
             ></div>
           </div>
-          <div
-            v-if="totalAmount > threshold"
-            class="text-red-500 p-3 text-center"
-          >
-            Puuh, da ist aber jemand hungrig. Bei großen Mengen können wir keine
-            sofortige Verfügbarkeit garantieren. Daher solltest du uns zunächst
-            kontaktieren.
-          </div>
           <div class="mt-8">
             <p class="text-gray-300 p-4 font-sans">
               Damit du auch genau weißt, wie viel Bargeld du mitbringen musst,
@@ -192,32 +168,26 @@
         </div>
       </div>
     </div>
-  </div>
+  </content-container>
 </template>
 
 <script>
 export default {
+  components: {
+    ContentContainer: () =>
+      import(
+        /* webpackChunkName: "common/content-container" */ "./Common/ContentContainer"
+      )
+  },
+
   created() {
-    this.$store.dispatch("layout/changeLayout", "restaurant");
-
     this.loadItems();
-
-    this.formatter = new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-      minimumFractionDigits: 2
-    });
   },
   props: {
     threshold: {
       type: Number,
       default: 100
     }
-  },
-
-  components: {
-    VueLoadImage: () =>
-      import(/* webpackChunkName: "modules/vue-load-image" */ "vue-load-image")
   },
 
   data() {
@@ -230,10 +200,6 @@ export default {
   },
 
   methods: {
-    formatCurrency(value) {
-      return this.formatter.format(value / 100);
-    },
-
     loadItems() {
       this.$http
         .get("api/menu")
@@ -259,20 +225,6 @@ export default {
       return this.cartItems.length <= 0;
     },
 
-    totalAmount() {
-      let totalAmount = 0;
-
-      this.amounts.forEach(amount => {
-        if (!amount || amount <= 0) {
-          return false;
-        }
-
-        totalAmount += parseInt(amount);
-      });
-
-      return totalAmount;
-    },
-
     totalCartAmount() {
       let totalAmount = 0;
 
@@ -282,10 +234,7 @@ export default {
         }
 
         totalAmount +=
-          meal.amount *
-          (meal.featured
-            ? meal.sale_price
-            : meal.price);
+          meal.amount * (meal.featured ? meal.sale_price : meal.price);
       });
 
       return totalAmount;
@@ -302,7 +251,7 @@ export default {
         totalWeight += meal.amount * meal.product.weight;
       });
 
-      return totalWeight.toFixed(1);
+      return this.$formatWeight.format(totalWeight);
     }
   }
 };

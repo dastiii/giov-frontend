@@ -5,33 +5,31 @@
         <h1 class="text-3xl text-gray-100 font-brand text-center mb-2">
           Jetzt Bestellstatus prüfen
         </h1>
-        <div class="text-center pt-4">
-          <form>
-            <input
-              aria-label="Bestellnummer"
-              placeholder="Bestellnummer"
-              v-model="orderno"
-              type="text"
-              class="font-mono text-center w-3/5 bg-gray-900 rounded-l-lg h-16 border-2 border-gray-800 focus:border-2 focus:border-brand text-gray-100 text-xl outline-none border-r-0"
-              :class="hasError ? 'border border-red-500' : ''"
-            /><button
-              :disabled="!orderno"
-              aria-label="Bestellstatus prüfen"
-              @submit.prevent="checkOrder()"
-              @click.prevent="checkOrder()"
-              class="bg-brand px-4 h-16 text-white text-xl rounded-r-lg"
-            >
-              <font-awesome-icon
-                v-if="isLoading"
-                :icon="['fad', 'spinner']"
-                spin
-              ></font-awesome-icon>
-              <font-awesome-icon
-                v-else
-                :icon="['fad', 'play']"
-              ></font-awesome-icon>
-            </button>
-          </form>
+        <div class="text-center pt-4 flex items-stretch justify-center lg:justify-end">
+          <input
+            aria-label="Bestellnummer"
+            placeholder="Bestellnummer"
+            v-model="orderno"
+            type="text"
+            class="font-mono text-center w-3/5 bg-gray-900 rounded-l-lg h-16 border-2 border-gray-800 focus:border-2 focus:border-brand text-gray-100 text-xl outline-none border-r-0"
+            :class="hasError ? 'border border-red-500' : ''"
+          /><button
+            :disabled="!orderno"
+            aria-label="Bestellstatus prüfen"
+            @submit.prevent="checkOrder()"
+            @click.prevent="checkOrder()"
+            class="bg-brand px-4 h-16 text-white text-xl rounded-r-lg"
+          >
+            <font-awesome-icon
+              v-if="isLoading"
+              :icon="['fad', 'spinner-third']"
+              spin
+            ></font-awesome-icon>
+            <font-awesome-icon
+              v-else
+              :icon="['fad', 'play']"
+            ></font-awesome-icon>
+          </button>
         </div>
       </div>
     </div>
@@ -40,10 +38,6 @@
 
 <script>
 export default {
-  created() {
-    this.$store.dispatch("layout/changeLayout", "restaurant");
-  },
-
   data() {
     return {
       orderno: null,
@@ -62,12 +56,12 @@ export default {
     },
 
     reset() {
-      this.orderno = "";
+      this.orderno = null;
       this.order = null;
     },
 
     checkOrder() {
-      if (this.order && this.order.orderno == this.orderno) {
+      if (this.order && this.order.orderno === this.orderno) {
         return false;
       }
 

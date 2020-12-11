@@ -1,7 +1,5 @@
 <template>
-  <div class="mt-8 md:mt-20">
-    <h3 class="text-white text-3xl font-brand -mb-1 pl-4">Über uns</h3>
-
+  <content-container heading="Über uns">
     <div
       class="px-4 pt-4 pb-8 bg-gray-950 bg-opacity-80 rounded-none md:rounded-lg"
     >
@@ -10,8 +8,8 @@
           <p class="text-gray-100 py-4 font-sans text-lg leading-loose">
             Der Grundstein unserer Erfolgsgeschichte wurde maßgeblich im Juli
             2019 durch Peter Flowers und Dylan Duncan gelegt. Seit der Gründung
-            konnten wir immer weiter wachsen, wodurch wir mittlerweile die gesamte
-            Lieferkette für unser Restaurant abbilden und dadurch
+            konnten wir immer weiter wachsen, wodurch wir mittlerweile die
+            gesamte Lieferkette für unser Restaurant abbilden und dadurch
             <b>beste Preise</b> und <b>Qualität</b> garantieren können.
           </p>
           <p class="text-gray-100 py-4 font-sans text-lg leading-loose">
@@ -43,11 +41,8 @@
                   spin
                 ></font-awesome-icon>
               </div>
-              <div class="h-full flex flex-col justify-around" slot="error">
-                <font-awesome-icon
-                  class="text-4xl text-gray-400"
-                  :icon="['fad', 'empty-set']"
-                ></font-awesome-icon>
+              <div class="h-full flex flex-col justify-around text-gray-300 font-brand text-xl" slot="error">
+                Bild nicht gefunden
               </div>
             </vue-load-image>
             <vue-load-image class="h-48 md:h-64">
@@ -65,11 +60,8 @@
                   spin
                 ></font-awesome-icon>
               </div>
-              <div class="h-full flex flex-col justify-around" slot="error">
-                <font-awesome-icon
-                  class="text-4xl text-gray-400"
-                  :icon="['fad', 'empty-set']"
-                ></font-awesome-icon>
+              <div class="h-full flex flex-col justify-around text-gray-300 font-brand text-xl" slot="error">
+                Bild nicht gefunden
               </div>
             </vue-load-image>
           </div>
@@ -89,17 +81,17 @@
         </div>
       </div>
     </div>
-  </div>
+  </content-container>
 </template>
 
 <script>
+import ContentContainer from "@/components/Common/ContentContainer";
+import VueLoadImage from "vue-load-image";
+
 export default {
-  created() {
-    this.$store.dispatch("layout/changeLayout", "restaurant");
-  },
   components: {
-    VueLoadImage: () =>
-      import(/* webpackChunkName: "modules/vue-load-image" */ "vue-load-image")
+    VueLoadImage,
+    ContentContainer
   }
 };
 </script>
