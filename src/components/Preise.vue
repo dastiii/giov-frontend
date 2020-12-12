@@ -66,7 +66,7 @@
                 <div class="flex justify-end font-mono">
                   <div
                     :class="meal.featured ? 'text-gray-300 line-through' : ''"
-                    v-text="$formatCurrency.format(meal.price)"
+                    v-text="$formatCurrency.format(meal.price / 100)"
                   ></div>
                   <div
                     v-if="meal.featured"
@@ -79,7 +79,7 @@
                   ></div>
                   <div
                     v-if="meal.featured"
-                    v-text="$formatCurrency.format(meal.sale_price)"
+                    v-text="$formatCurrency.format(meal.sale_price / 100)"
                   ></div>
                 </div>
               </div>
