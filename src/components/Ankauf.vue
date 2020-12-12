@@ -77,12 +77,12 @@
           class="text-red-500 mr-2"
           :icon="['fad', 'circle']"
         ></font-awesome-icon>
-        <div class="mr-4">geringer Bedarf, nur nach Absprache</div>
+        <div class="mr-4">geringer Bedarf</div>
         <font-awesome-icon
           class="text-gray-100 mr-2"
           :icon="['fad', 'circle']"
         ></font-awesome-icon>
-        <div class="mr-4">ausreichender Bedarf</div>
+        <div class="mr-4">normaler Bedarf</div>
         <font-awesome-icon
           class="text-green-500 mr-2"
           :icon="['fad', 'circle']"
