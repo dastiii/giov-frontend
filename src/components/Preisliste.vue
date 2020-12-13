@@ -124,9 +124,6 @@
 export default {
   created() {
     this.loadItems();
-    this.priceList = document
-      .querySelector("meta[name='pdf-pricelist']")
-      .getAttribute("content");
   },
   props: {
     threshold: {
@@ -141,15 +138,14 @@ export default {
       items: [],
       isLoading: true,
       hasError: false,
-      filter: null,
-      priceList: null
+      filter: null
     };
   },
 
   methods: {
     loadItems() {
       this.$http
-        .get("/api/prices")
+        .get("prices")
         .then(res => {
           this.items = res.data;
 

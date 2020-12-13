@@ -201,7 +201,7 @@ export default {
   methods: {
     loadItems() {
       this.$http
-        .get("api/menu")
+        .get("menu")
         .then(res => {
           this.items = res.data;
 

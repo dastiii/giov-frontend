@@ -155,7 +155,7 @@ export default {
   methods: {
     loadItems() {
       this.$http
-        .get("api/acquisition")
+        .get("acquisition")
         .then(res => {
           this.items = res.data;
 
