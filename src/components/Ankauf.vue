@@ -116,7 +116,7 @@
               Rohstoffe dennoch unbedingt verkaufen möchtest, kaufen wir dir
               diesen auch ab. Bedenke jedoch, dass der von uns gezahlte Preis
               auf Grund unserer <strong>geringen Nachfrage</strong> entsprechend
-              <strong>niedrig</strong> ausfällt.
+              <strong>niedriger</strong> ausfällt als üblich.
             </p>
           </div>
           <div>

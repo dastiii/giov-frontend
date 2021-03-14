@@ -21,8 +21,11 @@ import {
   faWindTurbine,
   faPlay,
   faTags,
-  faExclamationTriangle
+  faExclamationTriangle,
+  faCartPlus
 } from "@fortawesome/pro-duotone-svg-icons";
+import { faTimes } from "@fortawesome/pro-light-svg-icons";
+
 import Vue from "vue";
 
 library.add(
@@ -46,7 +49,9 @@ library.add(
   faPlay,
   faUtensils,
   faTags,
-  faExclamationTriangle
+  faExclamationTriangle,
+  faCartPlus,
+  faTimes
 );
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);

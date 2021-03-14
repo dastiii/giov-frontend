@@ -853,6 +853,11 @@
   resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-common-types/-/0.2.32/fontawesome-common-types-0.2.32.tgz#3436795d5684f22742989bfa08f46f50f516f259"
   integrity sha512-ux2EDjKMpcdHBVLi/eWZynnPxs0BtFVXJkgHIxXRl+9ZFaHPvYamAfCzeeQFqHRjuJtX90wVnMRaMQAAlctz3w==
 
+"@fortawesome/fontawesome-common-types@^0.2.34":
+  version "0.2.34"
+  resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-common-types/-/0.2.34/fontawesome-common-types-0.2.34.tgz#0a8c348bb23b7b760030f5b1d912e582be4ec915"
+  integrity sha512-XcIn3iYbTEzGIxD0/dY5+4f019jIcEIWBiHc3KrmK/ROahwxmZ/s+tdj97p/5K0klz4zZUiMfUlYP0ajhSJjmA==
+
 "@fortawesome/fontawesome-svg-core@^1.2.32":
   version "1.2.32"
   resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-svg-core/-/1.2.32/fontawesome-svg-core-1.2.32.tgz#da092bfc7266aa274be8604de610d7115f9ba6cf"
@@ -866,6 +871,13 @@
   integrity sha512-FgpjgPpitmg9GKfA0JIjmxdzcrT2eS6qbVDGXlWvy41R8TmD9SHalTsVKjodT1m1EQ55UYaLY3bTZTAmtq5nzA==
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.32"
+
+"@fortawesome/pro-light-svg-icons@^5.15.2":
+  version "5.15.2"
+  resolved "https://npm.fontawesome.com/@fortawesome/pro-light-svg-icons/-/5.15.2/pro-light-svg-icons-5.15.2.tgz#809302e36dee46d85b85825541268c56ad887085"
+  integrity sha512-vUoVft6LeK0uzw6GTji5gEGasNw7xvwwzRmiwVzaxTmK0Yrsqw65Djvk3UUWob4FdNwkr5lgEYsF3A29k+fdnw==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.34"
 
 "@fortawesome/vue-fontawesome@2":
   version "2.0.0"
@@ -947,6 +959,13 @@
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@soda/get-current-script/-/get-current-script-1.0.2.tgz#a53515db25d8038374381b73af20bb4f2e508d87"
   integrity sha512-T7VNNlYVM1SgQ+VsMYhnDkcGmWhQdL0bDyGm5TlQ3GBXnJscEClUUOKduWTmm2zCnvNLC1hc3JpuXjs/nFOc5w==
+
+"@tailwindcss/forms@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/forms/-/forms-0.2.1.tgz#3244b185854fae1a7cbe8d2456314d8b2d98cf43"
+  integrity sha512-czfvEdY+J2Ogfd6RUSr/ZSUmDxTujr34M++YLnp2cCPC3oJ4kFvFMaRXA6cEXKw7F1hJuapdjXRjsXIEXGgORg==
+  dependencies:
+    mini-svg-data-uri "^1.2.3"
 
 "@types/anymatch@*":
   version "1.3.1"
@@ -5441,6 +5460,11 @@ lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
 
+lodash@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
+
 log-symbols@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/log-symbols/-/log-symbols-2.2.0.tgz#5740e1c5d6f0dfda4ad9323b5332107ef6b4c40a"
@@ -5640,6 +5664,11 @@ mini-css-extract-plugin@^0.9.0:
     normalize-url "1.9.1"
     schema-utils "^1.0.0"
     webpack-sources "^1.1.0"
+
+mini-svg-data-uri@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/mini-svg-data-uri/-/mini-svg-data-uri-1.2.3.tgz#e16baa92ad55ddaa1c2c135759129f41910bc39f"
+  integrity sha512-zd6KCAyXgmq6FV1mR10oKXYtvmA9vRoB6xPSTUJTbFApCtkefDnYueVR1gkof3KcdLZo1Y8mjF2DFmQMIxsHNQ==
 
 minimalistic-assert@^1.0.0, minimalistic-assert@^1.0.1:
   version "1.0.1"
