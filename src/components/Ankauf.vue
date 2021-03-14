@@ -5,7 +5,7 @@
     >
       <p
         v-if="isAnkaufActive"
-        class="px-4 text-green-400 mb-8 rounded-lg mx-4 leading-normal flex flex-col md:flex-row items-center"
+        class="px-4 text-green-400 mb-8 rounded-lg mx-4 leading-normal flex flex-col md:flex-row items-center animate__animated animate__pulse animate__infinite animate__slow"
       >
         <font-awesome-icon
           :icon="['fad', 'smile-wink']"
@@ -89,20 +89,39 @@
         ></font-awesome-icon>
         <div>hoher Bedarf</div>
       </div>
-
-      <div class="-mx-4 md:mx-0 mb-8">
-        <div>
-          <product-list :items="highPriorityItems"></product-list>
+      <div class="space-y-12" v-if="!isLoading && !hasError">
+        <div v-if="highPriorityItems.length > 0" class="-mx-4 md:mx-0">
+          <div>
+            <product-list :items="highPriorityItems"></product-list>
+          </div>
         </div>
-      </div>
-      <div class="-mx-4 md:mx-0 mb-8">
-        <div>
-          <product-list :items="normalPriorityItems"></product-list>
+        <div v-if="normalPriorityItems.length > 0" class="-mx-4 md:mx-0">
+          <div>
+            <product-list :items="normalPriorityItems"></product-list>
+          </div>
         </div>
-      </div>
-      <div class="-mx-4 md:mx-0 mb-8">
-        <div>
-          <product-list :items="lowPriorityItems"></product-list>
+        <div
+          v-if="lowPriorityItems.length > 0"
+          class="-mx-4 md:mx-0 space-y-4"
+        >
+          <div class="text-red-100 text-lg bg-red-500 bg-opacity-25 px-4 py-3 rounded-none md:rounded-lg flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-6 items-center">
+            <font-awesome-icon
+              :icon="['fad', 'exclamation-triangle']"
+              class="text-5xl lg:text-3xl text-red-500"
+            ></font-awesome-icon>
+            <p>
+              Die nachfolgenden Rohstoffe benötigen wir aktuell
+              <strong>nicht</strong> oder nur
+              <strong>in geringen Mengen</strong>. Falls du einen dieser
+              Rohstoffe dennoch unbedingt verkaufen möchtest, kaufen wir dir
+              diesen auch ab. Bedenke jedoch, dass der von uns gezahlte Preis
+              auf Grund unserer <strong>geringen Nachfrage</strong> entsprechend
+              <strong>niedrig</strong> ausfällt.
+            </p>
+          </div>
+          <div>
+            <product-list :items="lowPriorityItems"></product-list>
+          </div>
         </div>
       </div>
       <div class="text-gray-500 text-xs text-center mt-4">

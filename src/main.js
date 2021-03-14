@@ -7,6 +7,9 @@ import "./app.css";
 import axios from "axios";
 import "./icons";
 import VueScreen from "vue-screen";
+import VTooltip from "v-tooltip";
+
+Vue.use(VTooltip);
 
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios;

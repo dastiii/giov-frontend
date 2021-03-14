@@ -5,7 +5,7 @@ const AboutUs = () =>
 const Location = () =>
   import(/* webpackChunkName: "routes/contact" */ "../components/Contact.vue");
 const Menu = () =>
-  import(/* webpackChunkName: "routes/menu" */ "../components/Preise.vue");
+  import(/* webpackChunkName: "routes/menu" */ "../components/Menu.vue");
 const Ankauf = () =>
   import(
     /* webpackChunkName: "routes/acquisition" */ "../components/Ankauf.vue"

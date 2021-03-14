@@ -12,7 +12,7 @@ module.exports = {
       },
 
       colors: {
-        brand: "hsla(140, 33%, 43%)",
+        brand: "hsla(140, 33%, 43%, 1)",
         "brand-hotel": "#e2b007",
         "brand-white": "#ddeee3",
         "brand-opaque": "hsla(140, 33%, 43%, 0.5)",

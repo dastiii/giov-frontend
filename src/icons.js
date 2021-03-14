@@ -19,7 +19,9 @@ import {
   faHatChef,
   faBoxOpen,
   faWindTurbine,
-  faPlay
+  faPlay,
+  faTags,
+  faExclamationTriangle
 } from "@fortawesome/pro-duotone-svg-icons";
 import Vue from "vue";
 
@@ -42,7 +44,9 @@ library.add(
   faBoxOpen,
   faWindTurbine,
   faPlay,
-  faUtensils
+  faUtensils,
+  faTags,
+  faExclamationTriangle
 );
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
