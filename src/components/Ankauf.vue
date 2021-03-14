@@ -90,18 +90,18 @@
         <div>hoher Bedarf</div>
       </div>
       <div class="space-y-12" v-if="!isLoading && !hasError">
-        <div v-if="highPriorityItems.length >= 0" class="-mx-4 md:mx-0">
+        <div v-if="highPriorityItems.length > 0" class="-mx-4 md:mx-0">
           <div>
             <product-list :items="highPriorityItems"></product-list>
           </div>
         </div>
-        <div v-if="normalPriorityItems.length >= 0" class="-mx-4 md:mx-0">
+        <div v-if="normalPriorityItems.length > 0" class="-mx-4 md:mx-0">
           <div>
             <product-list :items="normalPriorityItems"></product-list>
           </div>
         </div>
         <div
-          v-if="lowPriorityItems.length >= 0"
+          v-if="lowPriorityItems.length > 0"
           class="-mx-4 md:mx-0 space-y-4"
         >
           <div class="text-red-100 text-lg bg-red-500 bg-opacity-25 px-4 py-3 rounded-none md:rounded-lg flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-6 items-center">
