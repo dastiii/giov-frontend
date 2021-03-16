@@ -12,24 +12,6 @@
           uns zunächst und wir besprechen die Details!
         </p>
 
-        <div
-          class="md:ml-2 py-4 px-4 md:rounded text-lg leading-tight text-gray-100 my-4 hover:text-underline font-medium flex items-center"
-        >
-          <font-awesome-icon
-            :icon="['fal', 'info-square']"
-            class="text-2xl text-blue-500 font-medium mr-4"
-          ></font-awesome-icon>
-          <span
-            >Du suchst mehr?
-            <router-link
-              :to="{ name: 'prices' }"
-              class="underline hover:text-brand"
-              >Hier</router-link
-            >
-            geht's zu unserer vollständigen Preisliste.</span
-          >
-        </div>
-
         <div v-if="isLoading" class="w-full text-center mt-16">
           <font-awesome-icon
             class="text-gray-100 text-3xl"
@@ -53,24 +35,54 @@
 
         <div class="mt-8">
           <div v-if="items.length > 0">
-            <menu-item
-              v-for="meal in items"
-              :meal="meal"
-              :key="meal.id"
-              @addToCart="addToCart"
-            ></menu-item>
+            <transition-group name="list">
+              <menu-item
+                v-for="meal in meals"
+                :meal="meal"
+                :key="meal.id"
+                @addToCart="addToCart"
+              ></menu-item>
+            </transition-group>
           </div>
         </div>
       </div>
       <div
         class="w-full lg:w-4/12 p-2 lg:p-4 bg-gray-900 md:rounded-r-lg bg-opacity-50 space-y-8"
       >
-        <div>
+        <div class="space-y-4">
           <h3 class="pl-2 md:pl-0 text-white text-2xl font-brand mb-4">
             Auswahl verfeinern
           </h3>
-          <div>
-            <tag v-for="tag in availableTags" :name="tag" :key="tag"></tag>
+          <div v-if="isLoading || hasError">
+            <div v-if="isLoading && !hasError" class="flex items-center pl-6 space-x-4">
+              <font-awesome-icon
+                class="text-gray-100 text-xl"
+                :icon="['fal', 'spinner-third']"
+                spin
+              ></font-awesome-icon>
+              <div class="font-brand text-gray-300 text-xl">
+                Lade Kategorien...
+              </div>
+            </div>
+            <div v-else class="flex items-center pl-6 space-x-4">>
+              <font-awesome-icon
+                class="text-red-500 text-xl"
+                :icon="['fal', 'times-circle']"
+                spin
+              ></font-awesome-icon>
+              <div class="font-brand text-red-500 text-xl">
+                Fehler beim Laden
+              </div>
+            </div>
+          </div>
+          <div v-else>
+            <tag
+              v-for="tag in availableTags"
+              :name="tag"
+              :key="tag"
+              @added="addTag"
+              @removed="removeTag"
+            ></tag>
           </div>
         </div>
         <div class="sticky top-16 pt-2">
@@ -86,14 +98,16 @@
           </div>
 
           <div v-else>
-            <cart-item
-              v-for="item in cart"
-              :meal="item.meal"
-              :amount="item.amount"
-              :key="item.meal.id"
-              @removeFromCart="removeFromCart"
-              @updateAmount="updateCartAmount"
-            ></cart-item>
+            <transition-group name="list">
+              <cart-item
+                v-for="item in cart"
+                :meal="item.meal"
+                :amount="item.amount"
+                :key="item.meal.id"
+                @removeFromCart="removeFromCart"
+                @updateAmount="updateCartAmount"
+              ></cart-item>
+            </transition-group>
           </div>
 
           <div v-if="cart.length > 0">
@@ -133,7 +147,7 @@
 <script>
 import ContentContainer from "@/components/Common/ContentContainer";
 import Tag from "@/components/Tag";
-import { map, union, flatten, findIndex } from "lodash";
+import { map, union, flatten } from "lodash";
 import MenuItem from "@/components/MenuItem";
 import CartItem from "@/components/CartItem";
 
@@ -160,7 +174,8 @@ export default {
       items: [],
       isLoading: true,
       hasError: false,
-      cart: []
+      cart: [],
+      activeTags: [],
     };
   },
 
@@ -223,9 +238,19 @@ export default {
       this.cart.splice(index, 1, { meal, amount: newAmount });
     },
 
+    addTag(tag) {
+      if (this.activeTags.includes(tag)) return;
+      this.activeTags.push(tag);
+    },
+    removeTag(tag) {
+      let index = this.activeTags.findIndex(
+          activeTag => tag === activeTag
+      );
+      this.activeTags.splice(index, 1);
+    },
+
     _findIndex(meal) {
-      return findIndex(
-          this.cart,
+      return this.cart.findIndex(
           cartItem => cartItem.meal.id === meal.id
       );
     },
@@ -234,6 +259,18 @@ export default {
   computed: {
     cartEmpty() {
       return this.cart.length <= 0;
+    },
+
+    meals() {
+      let items = this.items;
+
+      if (this.activeTags.length > 0) {
+        items = items.filter(item => {
+          return this.activeTags.every(tag => item.product.tags.includes(tag));
+        });
+      }
+
+      return items;
     },
 
     totalCartAmount() {
@@ -272,3 +309,16 @@ export default {
   }
 };
 </script>
+
+<style>
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.3s;
+}
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+.list-move {
+  transition: transform 0.3s;
+}
+</style>

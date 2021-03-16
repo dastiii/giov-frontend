@@ -6,14 +6,14 @@
       <img :src="meal.product.icon_url" class="h-10" alt="" />
     </div>
     <div class="flex flex-col flex-1 min-w-0">
-      <div class="truncate" v-text="meal.product.name"></div>
+      <div class="truncate font-semibold" v-text="meal.product.name"></div>
       <div
-        class="truncate text-gray-300 italic text-sm"
+        class="truncate text-gray-400 font-light italic text-sm"
         v-text="meal.product.tags.join(', ')"
       ></div>
     </div>
     <div class="font-medium">
-      <div class="flex items-center justify-end font-mono">
+      <div class="flex items-center justify-end font-mono text-lg">
         <div
           :class="meal.featured ? 'text-gray-300 line-through' : ''"
           v-text="$formatCurrency.format(meal.price / 100)"
