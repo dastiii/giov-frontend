@@ -98,7 +98,7 @@
           </div>
 
           <div v-else>
-            <transition-group name="list">
+            <transition-group tag="div" name="list">
               <cart-item
                 v-for="item in cart"
                 :meal="item.meal"
