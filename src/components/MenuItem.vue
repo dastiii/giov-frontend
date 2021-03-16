@@ -44,7 +44,7 @@
             :class="{
               'cursor-pointer': meal.graduated_prices.length > 0
             }"
-            :icon="['fad', 'tags']"
+            :icon="['fal', 'tags']"
             v-tooltip.bottom-start="graduatedPrices(meal)"
             fixed-width
           ></font-awesome-icon>
@@ -66,7 +66,7 @@
             type="submit"
             class="outline-none focus:outline-none text-white rounded-r-lg bg-brand px-2 py-1"
           >
-            <font-awesome-icon :icon="['fad', 'cart-plus']"></font-awesome-icon>
+            <font-awesome-icon :icon="['fal', 'cart-plus']"></font-awesome-icon>
           </button>
         </div>
       </form>

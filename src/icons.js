@@ -22,9 +22,13 @@ import {
   faPlay,
   faTags,
   faExclamationTriangle,
-  faCartPlus
-} from "@fortawesome/pro-duotone-svg-icons";
-import { faTimes } from "@fortawesome/pro-light-svg-icons";
+  faCartPlus,
+  faTimes,
+  faPencil,
+  faSave,
+} from "@fortawesome/pro-light-svg-icons";
+
+import { faCircle as fadCircle } from "@fortawesome/pro-duotone-svg-icons";
 
 import Vue from "vue";
 
@@ -51,7 +55,10 @@ library.add(
   faTags,
   faExclamationTriangle,
   faCartPlus,
-  faTimes
+  faTimes,
+  faPencil,
+  faSave,
+  fadCircle,
 );
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);

@@ -28,14 +28,14 @@
       <p>
         <font-awesome-icon
           class="text-white"
-          :icon="['fad', 'home']"
+          :icon="['fal', 'home']"
         ></font-awesome-icon>
         8 South Rockford Drive, SA9001, Los Santos
       </p>
       <p class="font-serif">
         <font-awesome-icon
           class="text-white"
-          :icon="['fad', 'phone']"
+          :icon="['fal', 'phone']"
         ></font-awesome-icon>
         1822-76770759
       </p>
