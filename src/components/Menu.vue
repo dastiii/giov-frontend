@@ -311,17 +311,6 @@ export default {
 </script>
 
 <style lang="scss">
-/*.list-enter-active,*/
-/*.list-leave-active {*/
-/*  transition: all 0.3s;*/
-/*}*/
-/*.list-enter, .list-leave-to !* .list-leave-active below version 2.1.8 *! {*/
-/*  opacity: 0;*/
-/*}*/
-/*.list-move {*/
-/*  transition: transform 0.3s;*/
-/*}*/
-
 .list {
   &-move {
      transition: opacity .5s linear, transform .5s ease-in-out;
