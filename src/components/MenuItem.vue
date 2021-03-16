@@ -65,8 +65,9 @@
           <button
             type="submit"
             class="outline-none focus:outline-none text-white rounded-r-lg bg-brand px-2 py-1"
+            tabindex="-1"
           >
-            <font-awesome-icon :icon="['fal', 'cart-plus']"></font-awesome-icon>
+            <font-awesome-icon :icon="['fal', 'plus']"></font-awesome-icon>
           </button>
         </div>
       </form>

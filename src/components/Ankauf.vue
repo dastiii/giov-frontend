@@ -5,11 +5,11 @@
     >
       <p
         v-if="isAnkaufActive"
-        class="px-4 text-green-400 mb-8 rounded-lg mx-4 leading-normal flex flex-col md:flex-row items-center animate__animated animate__pulse animate__infinite animate__slow"
+        class="px-4 text-green-400 mb-8 rounded-lg mx-4 leading-normal flex flex-col md:flex-row items-center"
       >
         <font-awesome-icon
           :icon="['fal', 'smile-wink']"
-          class="text-4xl mr-4 mb-4 md:mb-0"
+          class="text-4xl mr-4 mb-4 md:mb-0 animate__animated animate__headShake animate__infinite animate__slow"
         ></font-awesome-icon>
         <span class="text-lg"
           >Du willst etwas verkaufen? Das trifft sich super. Wir sind gerade
