@@ -310,15 +310,39 @@ export default {
 };
 </script>
 
-<style>
-.list-enter-active,
-.list-leave-active {
-  transition: all 0.3s;
-}
-.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
-.list-move {
-  transition: transform 0.3s;
+<style lang="scss">
+/*.list-enter-active,*/
+/*.list-leave-active {*/
+/*  transition: all 0.3s;*/
+/*}*/
+/*.list-enter, .list-leave-to !* .list-leave-active below version 2.1.8 *! {*/
+/*  opacity: 0;*/
+/*}*/
+/*.list-move {*/
+/*  transition: transform 0.3s;*/
+/*}*/
+
+.list {
+  &-move {
+     transition: opacity .5s linear, transform .5s ease-in-out;
+   }
+
+  &-leave-active {
+     transition: opacity .4s linear, transform .4s cubic-bezier(.5,0,.7,.4); //cubic-bezier(.7,0,.7,1);
+     transition-delay: calc( 0.1s * (var(--total) - var(--i)) );
+   }
+
+  &-enter-active {
+     transition: opacity .5s linear, transform .5s cubic-bezier(.2,.5,.1,1);
+     transition-delay: calc( 0.1s * var(--i) );
+   }
+
+  &-enter,
+  &-leave-to {
+     opacity: 0;
+   }
+
+  &-enter { transform: translateX(-1em); }
+  &-leave-to { transform: translateX(1em); }
 }
 </style>
