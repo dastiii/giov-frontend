@@ -100,11 +100,15 @@ export default {
 
   created() {
     this.calculatePrice();
+
+    this.$emit("updateAmount", this.meal, this.amount, this.currentPrice);
   },
 
   watch: {
     amount() {
       this.calculatePrice();
+
+      this.$emit("updateAmount", this.meal, this.amount, this.currentPrice);
     },
   },
 

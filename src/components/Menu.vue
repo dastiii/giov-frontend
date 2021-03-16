@@ -147,7 +147,7 @@
 <script>
 import ContentContainer from "@/components/Common/ContentContainer";
 import Tag from "@/components/Tag";
-import { map, union, flatten } from "lodash";
+import { map, union, flatten, sumBy } from "lodash";
 import MenuItem from "@/components/MenuItem";
 import CartItem from "@/components/CartItem";
 
@@ -208,7 +208,8 @@ export default {
 
       this.cart.push({
         meal,
-        amount
+        amount,
+        price: meal.price,
       });
     },
 
@@ -222,7 +223,7 @@ export default {
       this.cart.splice(index, 1);
     },
 
-    updateCartAmount(meal, newAmount) {
+    updateCartAmount(meal, newAmount, calculatedPrice) {
       let index = this._findIndex(meal);
 
       if (index < 0) {
@@ -235,13 +236,14 @@ export default {
         return;
       }
 
-      this.cart.splice(index, 1, { meal, amount: newAmount });
+      this.cart.splice(index, 1, { meal, amount: newAmount, price: calculatedPrice });
     },
 
     addTag(tag) {
       if (this.activeTags.includes(tag)) return;
       this.activeTags.push(tag);
     },
+
     removeTag(tag) {
       let index = this.activeTags.findIndex(
           activeTag => tag === activeTag
@@ -274,33 +276,13 @@ export default {
     },
 
     totalCartAmount() {
-      let totalAmount = 0;
-
-      this.cart.forEach(item => {
-        if (!item.amount || item.amount <= 0) {
-          return false;
-        }
-
-        totalAmount +=
-          item.amount *
-          (item.meal.featured ? item.meal.sale_price : item.meal.price);
-      });
-
-      return totalAmount;
+      return sumBy(this.cart, cartItem => cartItem.amount * cartItem.price);
     },
 
     totalCartWeight() {
-      let totalWeight = 0;
-
-      this.cart.forEach(item => {
-        if (!item.amount || item.amount <= 0) {
-          return false;
-        }
-
-        totalWeight += item.amount * item.meal.product.weight;
-      });
-
-      return this.$formatWeight.format(totalWeight);
+      return this.$formatWeight.format(
+          sumBy(this.cart, cartItem => cartItem.amount * cartItem.meal.product.weight)
+      );
     },
 
     availableTags() {

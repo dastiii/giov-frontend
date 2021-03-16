@@ -76,16 +76,8 @@
 @tailwind base;
 @tailwind components;
 
-.page-background {
+body {
   background-image: url('./assets/background.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
-}
-
-.hotel-background {
-  background-image: url('./assets/hotel_background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -228,7 +220,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #4B5563;
+  @apply bg-gray-900;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -240,7 +232,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-transparent;
+  @apply bg-gray-950;
 }
 
 @tailwind utilities;
