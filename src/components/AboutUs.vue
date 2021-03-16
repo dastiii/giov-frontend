@@ -37,7 +37,7 @@
               <div class="h-full flex flex-col justify-around" slot="preloader">
                 <font-awesome-icon
                   class="text-4xl text-gray-400"
-                  :icon="['fad', 'spinner-third']"
+                  :icon="['fal', 'spinner-third']"
                   spin
                 ></font-awesome-icon>
               </div>
@@ -56,7 +56,7 @@
               <div class="h-full flex flex-col justify-around" slot="preloader">
                 <font-awesome-icon
                   class="text-4xl text-gray-400"
-                  :icon="['fad', 'spinner-third']"
+                  :icon="['fal', 'spinner-third']"
                   spin
                 ></font-awesome-icon>
               </div>

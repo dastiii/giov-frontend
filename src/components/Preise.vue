@@ -16,7 +16,7 @@
           class="md:ml-2 py-4 px-4 md:rounded text-lg leading-tight text-gray-100 my-4 hover:text-underline font-medium flex items-center"
         >
           <font-awesome-icon
-            :icon="['fad', 'info-square']"
+            :icon="['fal', 'info-square']"
             class="text-2xl text-blue-500 font-medium mr-4"
           ></font-awesome-icon>
           <span
@@ -33,7 +33,7 @@
         <div v-if="isLoading" class="w-full text-center mt-16">
           <font-awesome-icon
             class="text-gray-100 text-3xl"
-            :icon="['fad', 'spinner-third']"
+            :icon="['fal', 'spinner-third']"
             spin
           ></font-awesome-icon>
           <div class="font-brand text-gray-300 text-xl mt-4">
@@ -44,7 +44,7 @@
         <div v-if="!isLoading && hasError" class="w-full text-center mt-16">
           <font-awesome-icon
             class=" text-red-500 text-3xl"
-            :icon="['fad', 'times-circle']"
+            :icon="['fal', 'times-circle']"
           ></font-awesome-icon>
           <div class="font-brand text-red-500 text-xl mt-4">
             Speisekarte nicht verfügbar

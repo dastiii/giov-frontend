@@ -22,12 +22,12 @@
           >
             <font-awesome-icon
               v-if="isLoading"
-              :icon="['fad', 'spinner-third']"
+              :icon="['fal', 'spinner-third']"
               spin
             ></font-awesome-icon>
             <font-awesome-icon
               v-else
-              :icon="['fad', 'play']"
+              :icon="['fal', 'play']"
             ></font-awesome-icon>
           </button>
         </div>

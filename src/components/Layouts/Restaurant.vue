@@ -14,7 +14,7 @@
             </h1>
 
             <nav
-              class="flex-1 text-white flex items-center justify-end font-brand text-xl"
+              class="flex-1 text-white flex items-center justify-end font-brand text-xl space-x-2"
             >
               <router-link
                 :to="{ name: 'home' }"
@@ -24,32 +24,33 @@
               >
               <router-link
                 :to="{ name: 'about' }"
-                class="ml-4 pl-2 pr-3 py-1 hover:bg-brand whitespace-no-wrap"
+                class="pl-2 pr-3 py-1 hover:bg-brand whitespace-no-wrap"
                 >Über uns</router-link
               >
               <router-link
                 :to="{ name: 'menu' }"
-                class="ml-4 pl-2 pr-3 py-1 hover:bg-brand"
+                class="pl-2 pr-3 py-1 hover:bg-brand"
                 >Preise</router-link
               >
               <router-link
                 :to="{ name: 'ankauf' }"
-                class="ml-4 pl-2 pr-3 py-1 hover:bg-brand flex"
+                class="pl-2 pr-3 py-1 hover:bg-brand flex"
+                :class="{ 'pr-2': isAnkaufActive }"
               >
-                Ankauf
+                <span>Ankauf</span>
                 <span
                   class="text-xs self-start text-green-500 pl-3"
-                  :class="isAnkaufActive ? '' : 'hidden'"
+                  :class="{ 'hidden': !isAnkaufActive }"
                 >
                   <font-awesome-icon
-                    :icon="['fad', 'circle']"
-                    class="pulse"
+                      :icon="['fad', 'circle']"
+                      class="animate__animated animate__heartBeat animate__infinite"
                   ></font-awesome-icon>
                 </span>
               </router-link>
               <router-link
                 :to="{ name: 'location.giov' }"
-                class="ml-4 pl-2 pr-3 py-1 hover:bg-brand"
+                class="pl-2 pr-3 py-1 hover:bg-brand"
                 >Kontakt</router-link
               >
             </nav>
@@ -86,7 +87,7 @@
 
           <nav
             :class="{ block: isNavOpen, 'hidden lg:block': !isNavOpen }"
-            class="w-full flex-grow lg:flex-1 text-white flex-col lg:flex-row lg:flex lg:items-center lg:justify-end font-brand text-xl"
+            class="w-full flex-grow lg:flex-1 text-white flex-col lg:flex-row lg:flex lg:items-center lg:justify-end font-brand text-xl space-x-2"
           >
             <router-link
               id="site-header"
@@ -97,32 +98,33 @@
             >
             <router-link
               :to="{ name: 'about' }"
-              class="my-2 lg:my-0 block py-2 pl-3 pr-4 lg:ml-2 hover:bg-brand whitespace-nowrap"
+              class="my-2 lg:my-0 block py-2 pl-3 pr-4 hover:bg-brand whitespace-nowrap"
               >Über uns</router-link
             >
             <router-link
               :to="{ name: 'menu' }"
-              class="my-2 lg:my-0 block py-2 pl-3 pr-4 lg:ml-2 hover:bg-brand"
+              class="my-2 lg:my-0 block py-2 pl-3 pr-4 hover:bg-brand"
               >Preise</router-link
             >
             <router-link
               :to="{ name: 'ankauf' }"
-              class="my-2 lg:my-0 block py-2 pl-3 pr-4 hover:bg-brand flex lg:ml-2"
+              class="my-2 lg:my-0 py-2 pl-3 pr-4 hover:bg-brand flex"
+              :class="{ 'pr-2': isAnkaufActive && $route.name !== 'ankauf' }"
             >
               <span>Ankauf</span>
               <span
-                class="text-xs self-start text-green-500 pl-3"
+                class="text-xs text-green-500 pl-3"
                 :class="{ hidden: !isAnkaufActive || $route.name === 'ankauf' }"
               >
                 <font-awesome-icon
                   :icon="['fad', 'circle']"
-                  class="pulse"
+                  class="animate__animated animate__heartBeat animate__infinite"
                 ></font-awesome-icon>
               </span>
             </router-link>
             <router-link
               :to="{ name: 'location.giov' }"
-              class="my-2 lg:my-0 block py-2 pl-3 pr-4 lg:ml-2 hover:bg-brand"
+              class="my-2 lg:my-0 block py-2 pl-3 pr-4 hover:bg-brand"
               >Kontakt</router-link
             >
           </nav>

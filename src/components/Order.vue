@@ -7,7 +7,7 @@
       >
         <font-awesome-icon
           class="text-4xl text-center"
-          :icon="['fad', 'spinner-third']"
+          :icon="['fal', 'spinner-third']"
           spin
         ></font-awesome-icon>
         <div class="text-2xl font-brand mt-4">
@@ -21,7 +21,7 @@
       >
         <font-awesome-icon
           class="text-4xl text-center"
-          :icon="['fad', 'times-circle']"
+          :icon="['fal', 'times-circle']"
         ></font-awesome-icon>
         <div class="text-2xl font-brand mt-4">
           Ups, da ist etwas schiefgelaufen. Bitte probiere es später erneut.
@@ -37,7 +37,7 @@
               <div class="flex-1 md:flex-initial text-center">
                 <font-awesome-icon
                   class="mb-2 text-4xl"
-                  :icon="['fad', 'file-contract']"
+                  :icon="['fal', 'file-contract']"
                 ></font-awesome-icon>
                 <p>Auftrag bestätigt</p>
               </div>
@@ -52,12 +52,12 @@
                 <font-awesome-icon
                   v-if="order.confirmed"
                   class="text-2xl text-brand"
-                  :icon="['fad', 'check-circle']"
+                  :icon="['fal', 'check-circle']"
                 ></font-awesome-icon>
                 <font-awesome-icon
                   v-else
                   class="text-2xl"
-                  :icon="['fad', 'spinner-third']"
+                  :icon="['fal', 'spinner-third']"
                   spin
                 ></font-awesome-icon>
               </div>
@@ -68,7 +68,7 @@
               <div class="flex-1 md:flex-initial text-center">
                 <font-awesome-icon
                   class="mb-2 text-4xl"
-                  :icon="['fad', 'hat-chef']"
+                  :icon="['fal', 'hat-chef']"
                 ></font-awesome-icon>
                 <p>Wird zubereitet</p>
               </div>
@@ -90,18 +90,18 @@
                 <font-awesome-icon
                   v-if="order.confirmed && order.in_production"
                   class="text-2xl text-brand"
-                  :icon="['fad', 'check-circle']"
+                  :icon="['fal', 'check-circle']"
                 ></font-awesome-icon>
                 <font-awesome-icon
                   v-else-if="order.confirmed"
                   class="text-2xl"
-                  :icon="['fad', 'spinner-third']"
+                  :icon="['fal', 'spinner-third']"
                   spin
                 ></font-awesome-icon>
                 <font-awesome-icon
                   v-else
                   class="text-2xl"
-                  :icon="['fad', 'circle']"
+                  :icon="['fal', 'circle']"
                 ></font-awesome-icon>
               </div>
             </div>
@@ -111,7 +111,7 @@
               <div class="flex-1 md:flex-initial text-center">
                 <font-awesome-icon
                   class="mb-2 text-4xl"
-                  :icon="['fad', 'truck-loading']"
+                  :icon="['fal', 'truck-loading']"
                 ></font-awesome-icon>
                 <p>Bereit zur Auslieferung</p>
               </div>
@@ -143,18 +143,18 @@
                       order.ready_for_delivery
                   "
                   class="text-2xl text-brand"
-                  :icon="['fad', 'check-circle']"
+                  :icon="['fal', 'check-circle']"
                 ></font-awesome-icon>
                 <font-awesome-icon
                   v-else-if="order.confirmed && order.in_production"
                   class="text-2xl"
-                  :icon="['fad', 'spinner-third']"
+                  :icon="['fal', 'spinner-third']"
                   spin
                 ></font-awesome-icon>
                 <font-awesome-icon
                   v-else
                   class="text-2xl"
-                  :icon="['fad', 'circle']"
+                  :icon="['fal', 'circle']"
                 ></font-awesome-icon>
               </div>
             </div>
@@ -164,7 +164,7 @@
               <div class="flex-1 md:flex-initial text-center">
                 <font-awesome-icon
                   class="mb-2 text-4xl"
-                  :icon="['fad', 'box-check']"
+                  :icon="['fal', 'box-check']"
                 ></font-awesome-icon>
                 <p>Abgeschlossen</p>
               </div>
@@ -202,7 +202,7 @@
                       order.completed
                   "
                   class="text-2xl text-brand"
-                  :icon="['fad', 'check-circle']"
+                  :icon="['fal', 'check-circle']"
                 ></font-awesome-icon>
                 <font-awesome-icon
                   v-else-if="
@@ -211,13 +211,13 @@
                       order.ready_for_delivery
                   "
                   class="text-2xl"
-                  :icon="['fad', 'spinner-third']"
+                  :icon="['fal', 'spinner-third']"
                   spin
                 ></font-awesome-icon>
                 <font-awesome-icon
                   v-else
                   class="text-2xl"
-                  :icon="['fad', 'circle']"
+                  :icon="['fal', 'circle']"
                 ></font-awesome-icon>
               </div>
             </div>
