@@ -21,8 +21,15 @@ import {
   faWindTurbine,
   faPlay,
   faTags,
-  faExclamationTriangle
-} from "@fortawesome/pro-duotone-svg-icons";
+  faExclamationTriangle,
+  faCartPlus,
+  faTimes,
+  faPencil,
+  faSave,
+} from "@fortawesome/pro-light-svg-icons";
+
+import { faCircle as fadCircle } from "@fortawesome/pro-duotone-svg-icons";
+
 import Vue from "vue";
 
 library.add(
@@ -46,7 +53,12 @@ library.add(
   faPlay,
   faUtensils,
   faTags,
-  faExclamationTriangle
+  faExclamationTriangle,
+  faCartPlus,
+  faTimes,
+  faPencil,
+  faSave,
+  fadCircle,
 );
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);

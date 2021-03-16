@@ -8,7 +8,7 @@
         class="px-4 text-green-400 mb-8 rounded-lg mx-4 leading-normal flex flex-col md:flex-row items-center animate__animated animate__pulse animate__infinite animate__slow"
       >
         <font-awesome-icon
-          :icon="['fad', 'smile-wink']"
+          :icon="['fal', 'smile-wink']"
           class="text-4xl mr-4 mb-4 md:mb-0"
         ></font-awesome-icon>
         <span class="text-lg"
@@ -37,7 +37,7 @@
         class="py-4 px-4 md:rounded leading-tight text-gray-100 md:mx-4 my-4 hover:text-underline font-medium flex items-center"
       >
         <font-awesome-icon
-          :icon="['fad', 'info-square']"
+          :icon="['fal', 'info-square']"
           class="text-2xl text-blue-500 font-medium mr-4"
         ></font-awesome-icon>
         <span class="text-lg"
@@ -54,7 +54,7 @@
       <div v-if="isLoading" class="w-full text-center mt-16">
         <font-awesome-icon
           class="text-gray-100 text-3xl"
-          :icon="['fad', 'spinner-third']"
+          :icon="['fal', 'spinner-third']"
           spin
         ></font-awesome-icon>
         <div class="font-brand text-gray-300 text-xl mt-4">
@@ -65,7 +65,7 @@
       <div v-if="!isLoading && hasError" class="w-full text-center mt-16">
         <font-awesome-icon
           class=" text-red-500 text-3xl"
-          :icon="['fad', 'times-circle']"
+          :icon="['fal', 'times-circle']"
         ></font-awesome-icon>
         <div class="font-brand text-red-500 text-xl mt-4">
           Ankaufsliste nicht verfügbar
@@ -75,17 +75,17 @@
       <div class="flex items-center justify-center text-gray-400 my-8">
         <font-awesome-icon
           class="text-red-500 mr-2"
-          :icon="['fad', 'circle']"
+          :icon="['fal', 'circle']"
         ></font-awesome-icon>
         <div class="mr-4">geringer Bedarf</div>
         <font-awesome-icon
           class="text-gray-100 mr-2"
-          :icon="['fad', 'circle']"
+          :icon="['fal', 'circle']"
         ></font-awesome-icon>
         <div class="mr-4">normaler Bedarf</div>
         <font-awesome-icon
           class="text-green-500 mr-2"
-          :icon="['fad', 'circle']"
+          :icon="['fal', 'circle']"
         ></font-awesome-icon>
         <div>hoher Bedarf</div>
       </div>
@@ -106,7 +106,7 @@
         >
           <div class="text-red-100 text-lg bg-red-500 bg-opacity-25 px-4 py-3 rounded-none md:rounded-lg flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-6 items-center">
             <font-awesome-icon
-              :icon="['fad', 'exclamation-triangle']"
+              :icon="['fal', 'exclamation-triangle']"
               class="text-5xl lg:text-3xl text-red-500"
             ></font-awesome-icon>
             <p>
@@ -116,7 +116,7 @@
               Rohstoffe dennoch unbedingt verkaufen möchtest, kaufen wir dir
               diesen auch ab. Bedenke jedoch, dass der von uns gezahlte Preis
               auf Grund unserer <strong>geringen Nachfrage</strong> entsprechend
-              <strong>niedrig</strong> ausfällt.
+              <strong>niedriger</strong> ausfällt als üblich.
             </p>
           </div>
           <div>

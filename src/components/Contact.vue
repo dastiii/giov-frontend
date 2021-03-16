@@ -16,7 +16,7 @@
         >
           <font-awesome-icon
             class="mr-2"
-            :icon="['fad', 'utensils']"
+            :icon="['fal', 'utensils']"
             fixed-width
           ></font-awesome-icon>
           <span>Restaurant &bdquo;GioV&rdquo;</span>
@@ -30,7 +30,7 @@
         >
           <font-awesome-icon
             class="mr-2"
-            :icon="['fad', 'boxes']"
+            :icon="['fal', 'boxes']"
             fixed-width
           ></font-awesome-icon>
           <span>Lagerhaus &bdquo;Ankauf&rdquo;</span>
@@ -44,7 +44,7 @@
         >
           <font-awesome-icon
             class="mr-2"
-            :icon="['fad', 'boxes']"
+            :icon="['fal', 'boxes']"
             fixed-width
           ></font-awesome-icon>
           <span>Lagerhaus &bdquo;Verkauf&rdquo;</span>
@@ -58,7 +58,7 @@
         >
           <font-awesome-icon
             class="mr-2"
-            :icon="['fad', 'meat']"
+            :icon="['fal', 'meat']"
             fixed-width
           ></font-awesome-icon>
           <span>Metzgerei</span>
@@ -72,7 +72,7 @@
         >
           <font-awesome-icon
             class="mr-2"
-            :icon="['fad', 'wind-turbine']"
+            :icon="['fal', 'wind-turbine']"
             fixed-width
           ></font-awesome-icon>
           <span>Mühle</span>
@@ -86,7 +86,7 @@
         >
           <font-awesome-icon
             class="mr-2"
-            :icon="['fad', 'box-open']"
+            :icon="['fal', 'box-open']"
             fixed-width
           ></font-awesome-icon>
           <span>Packerei</span>

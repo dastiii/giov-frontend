@@ -2,7 +2,7 @@ import axios from "axios";
 
 let domain =
   process.env.NODE_ENV === "production"
-    ? "api.giov.restaurant"
+    ? process.env.VUE_APP_REMOTE_URL
     : "api.giov.test";
 
 axios.defaults.baseURL = `https://${domain}/`;

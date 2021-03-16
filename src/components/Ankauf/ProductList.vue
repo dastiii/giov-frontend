@@ -15,7 +15,7 @@
             item.priority === 'high' ? 'text-green-500' : '',
             item.priority === 'low' ? 'text-red-500' : ''
           ]"
-          :icon="['fad', 'circle']"
+          :icon="['fal', 'circle']"
         ></font-awesome-icon>
         <div class="flex-1 flex items-center">
           <img class="h-6 md:h-8 mr-2" :src="item.product.icon_url" alt="" />

@@ -7,7 +7,7 @@
     >
       <font-awesome-icon
         class="mx-auto text-4xl text-gray-400"
-        :icon="['fad', 'spinner-third']"
+        :icon="['fal', 'spinner-third']"
         spin
       ></font-awesome-icon>
     </div>
