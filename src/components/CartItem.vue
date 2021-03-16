@@ -17,7 +17,6 @@
         </div>
         <div>
           <v-popover
-            class="cart-item-amount"
             offset="4"
             placement="bottom-start"
             :autoHide="true"
@@ -59,18 +58,18 @@
             </template>
           </v-popover>
         </div>
+        <button
+          @click="$emit('removeFromCart', meal)"
+          class="focus:outline-none focus:text-red-200"
+        >
+          <font-awesome-icon :icon="['fal', 'times']"></font-awesome-icon>
+        </button>
       </div>
     </div>
     <div
       class="font-mono text-left font-medium"
       v-text="$formatCurrency.format(currentPrice / 100 * amount)"
     ></div>
-    <button
-      @click="$emit('removeFromCart', meal)"
-      class="text-gray-600 focus:outline-none focus:text-red-200"
-    >
-      <font-awesome-icon :icon="['fal', 'times']"></font-awesome-icon>
-    </button>
   </div>
 </template>
 

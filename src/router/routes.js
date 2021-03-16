@@ -10,10 +10,6 @@ const Ankauf = () =>
   import(
     /* webpackChunkName: "routes/acquisition" */ "../components/Ankauf.vue"
   );
-const Preisliste = () =>
-  import(
-    /* webpackChunkName: "routes/prices" */ "../components/Preisliste.vue"
-  );
 const Order = () =>
   import(/* webpackChunkName: "routes/order" */ "../components/Order.vue");
 const GioV = () =>
@@ -110,11 +106,6 @@ export default {
       path: "/what-we-buy",
       component: Ankauf,
       name: "ankauf",
-    },
-    {
-      path: "/menu/prices",
-      component: Preisliste,
-      name: "prices"
     },
     { path: "*", redirect: { name: "home" } }
   ],

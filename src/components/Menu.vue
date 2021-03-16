@@ -1,7 +1,27 @@
 <template>
-  <content-container heading="Speisekarte">
+  <div class="mt-8 md:mt-20">
+    <div class="flex flex-wrap md:flex-no-wrap justify-between items-end">
+      <h3 class="text-white text-3xl font-brand -mb-1 pl-4">Speisekarte</h3>
+      <div class="w-full md:w-auto flex items-stretch">
+        <div
+        class="py-4 bg-brand bg-opacity-75 px-4 rounded-none md:rounded-tl"
+        >
+          <font-awesome-icon
+            class="text-white text-lg"
+            :icon="['fal', 'search']"
+          ></font-awesome-icon>
+        </div>
+        <input
+          class="flex-1 w-64 border-gray-900 md:flex-auto focus:ring-0 focus:border-brand outline-none bg-gray-900 bg-opacity-75 rounded-none md:rounded-tr py-2 px-4 text-gray-100"
+          v-model="filter"
+          type="text"
+          placeholder="Suchen..."
+        />
+      </div>
+    </div>
+
     <div
-      class="flex flex-wrap lg:flex-no-wrap w-full bg-gray-950 bg-opacity-80 rounded-none md:rounded-lg"
+      class="flex flex-wrap lg:flex-no-wrap w-full bg-gray-950 bg-opacity-80 rounded-none md:rounded-lg md:rounded-tr-none"
     >
       <div class="w-full lg:w-8/12 p-4">
         <p class="text-lg text-gray-100 py-4 px-4 font-sans leading-loose">
@@ -112,7 +132,7 @@
 
           <div v-if="cart.length > 0">
             <div
-              class="p-3 pr-4 pt-2 pb-0 text-right text-gray-100 font-medium border-t-4 border-brand border-double"
+              class="p-3 pr-2 pt-2 pb-0 text-right text-gray-100 font-medium border-t-4 border-brand border-double"
             >
               in bar zu entrichten:
               <span
@@ -122,7 +142,7 @@
             </div>
 
             <div
-              class="p-3 pr-4 pt-0 text-right text-gray-500"
+              class="p-3 pr-2 pt-0 text-right text-gray-500"
               v-text="`Gewicht: ${totalCartWeight}kg`"
             ></div>
           </div>
@@ -141,11 +161,10 @@
         </div>
       </div>
     </div>
-  </content-container>
+  </div>
 </template>
 
 <script>
-import ContentContainer from "@/components/Common/ContentContainer";
 import Tag from "@/components/Tag";
 import { map, union, flatten, sumBy } from "lodash";
 import MenuItem from "@/components/MenuItem";
@@ -156,7 +175,6 @@ export default {
     CartItem,
     MenuItem,
     Tag,
-    ContentContainer
   },
 
   created() {
@@ -176,6 +194,7 @@ export default {
       hasError: false,
       cart: [],
       activeTags: [],
+      filter: "",
     };
   },
 
@@ -265,6 +284,12 @@ export default {
 
     meals() {
       let items = this.items;
+
+      if (this.filter !== "") {
+        items = items.filter(item => {
+          return item.product.name.match(new RegExp(this.filter, "i"));
+        });
+      }
 
       if (this.activeTags.length > 0) {
         items = items.filter(item => {
