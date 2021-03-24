@@ -114,7 +114,7 @@
             v-if="cart.length <= 0"
             class="md:rounded-lg bg-gray-900 p-4 text-gray-300"
           >
-            Du hast noch keine Produkte ausgewählt
+            Du hast noch keine Produkte ausgewählt.
           </div>
 
           <div v-else>
@@ -147,32 +147,25 @@
             ></div>
           </div>
 
-          <div class="mt-4">
-            <p class="text-gray-300 p-4 font-sans">
-              Damit du auch genau weißt, wie viel Bargeld du mitbringen musst,
-              kannst du hier eine Vorauswahl mit deinen gewünschten Mengen
-              treffen und du bekommst Preis und Gewicht sofort ausgerechnet.
-            </p>
-            <p
-                class="text-right font-brand text-2xl p-4 pl-8 text-brand font-medium italic"
-            >
-              So einfach war es noch nie!
-            </p>
-          </div>
-
           <div class="mt-8">
             <h3 class="font-brand text-2xl text-white font-medium">
               Bestellung per SMS
             </h3>
             <div class="text-gray-300 p-4 font-sans">
               <p>Tätige deine Bestellung ganz bequem in 3 Schritten per SMS:</p>
-              <ol class="list-decimal mt-3 pl-8 space-y-1">
+              <ol class="list-decimal my-3 pl-8 space-y-1">
                 <li>Wähle Gerichte und Getränke in deiner gewünschten Menge aus.</li>
                 <li>
-                  <a v-clipboard="() => orderText" class="text-brand font-bold cursor-pointer hover:text-brand hover:underline">Klicke hier</a>, um deine Auswahl zu kopieren.
+                  <a ref="copyToClipboard"
+                     v-clipboard="() => orderText"
+                     v-clipboard:success="clipboardSuccessHandler"
+                     v-clipboard:error="clipboardErrorHandler"
+                     class="text-brand font-bold cursor-pointer hover:text-brand hover:underline"
+                  >Klicke hier</a>, um deine Auswahl zu kopieren.
                 </li>
                 <li>Schicke uns deine Bestellung unter Angabe deines Namens per SMS an die <span class="text-brand font-bold">1822-76770759</span>.</li>
               </ol>
+              <p>Fertig! Wir melden uns anschließend für alle weiteren Details persönlich bei dir.</p>
             </div>
           </div>
         </div>
@@ -292,6 +285,22 @@ export default {
           cartItem => cartItem.meal.id === meal.id
       );
     },
+
+    clipboardSuccessHandler() {
+      this.$refs.copyToClipboard.classList.add("animate__animated", "animate__flash", "inline-block");
+
+      setTimeout(() => {
+        this.$refs.copyToClipboard.classList.remove("animate__animated", "animate__flash", "inline-block");
+      }, 1000);
+    },
+
+    clipboardErrorHandler() {
+      this.$refs.copyToClipboard.classList.add("animate__animated", "animate__shakeX", "inline-block", "text-red-500");
+
+      setTimeout(() => {
+        this.$refs.copyToClipboard.classList.remove("animate__animated", "animate__shakeX", "inline-block", "text-red-500");
+      }, 1000);
+    }
   },
 
   computed: {

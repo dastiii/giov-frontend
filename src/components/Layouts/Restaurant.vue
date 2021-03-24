@@ -34,17 +34,17 @@
               >
               <router-link
                 :to="{ name: 'ankauf' }"
-                class="pl-2 pr-3 py-1 hover:bg-brand flex"
+                class="pl-2 pr-3 py-1 hover:bg-brand flex group"
                 :class="{ 'pr-2': isAnkaufActive }"
               >
                 <span>Ankauf</span>
                 <span
-                  class="text-xs self-start text-green-500 pl-3"
-                  :class="{ 'hidden': !isAnkaufActive }"
+                  class="text-xs self-start group-hover:text-white pl-3"
+                  :class="{ 'hidden': !isAnkaufActive, 'text-white': $route.name === 'ankauf', 'text-green-500': $route.name !== 'ankauf' }"
                 >
                   <font-awesome-icon
-                      :icon="['fad', 'circle']"
-                      class="animate__animated animate__heartBeat animate__infinite"
+                    :icon="['fad', 'circle']"
+                    class="animate__animated animate__heartBeat animate__infinite"
                   ></font-awesome-icon>
                 </span>
               </router-link>
@@ -108,13 +108,13 @@
             >
             <router-link
               :to="{ name: 'ankauf' }"
-              class="my-2 lg:my-0 py-2 pl-3 pr-4 hover:bg-brand flex"
-              :class="{ 'pr-2': isAnkaufActive && $route.name !== 'ankauf' }"
+              class="my-2 lg:my-0 py-2 pl-3 pr-4 hover:bg-brand flex group"
+              :class="{ 'pr-2': isAnkaufActive }"
             >
               <span>Ankauf</span>
               <span
-                class="text-xs text-green-500 pl-3"
-                :class="{ hidden: !isAnkaufActive || $route.name === 'ankauf' }"
+                class="text-xs pl-3 group-hover:text-white"
+                :class="{ 'hidden': !isAnkaufActive, 'text-white': $route.name === 'ankauf', 'text-green-500': $route.name !== 'ankauf' }"
               >
                 <font-awesome-icon
                   :icon="['fad', 'circle']"
