@@ -25,11 +25,11 @@
     >
       <div class="w-full lg:w-8/12 p-4">
         <p class="text-lg text-gray-100 py-4 px-4 font-sans leading-loose">
-          Unten findest du eine Auswahl an Getränken und Speisen, die wir
-          täglich frisch zubereiten und für dich und deinen Hunger in unserem
-          Restaurant zum Verzehr bereithalten. Du hättest gerne etwas
-          <b>spezielles</b> oder benötigst <b>große Mengen</b>? Dann kontaktiere
-          uns zunächst und wir besprechen die Details!
+          Unten findest du alle Getränke und Speisen, die wir sowohl täglich, als auch auf Bestellung, frisch für dich
+          zubereiten. <strong>Du benötigst große Mengen und willst sparen?</strong> Gerne bieten wir dir bei unseren
+          Bestsellern <strong>attraktive Staffelpreise</strong> an. Kontaktiere uns einfach per Telefon oder schicke uns
+          deine Bestellung einfach direkt per SMS - wir melden uns schnellstmöglich bei dir um eine Lieferung zu
+          vereinbaren.
         </p>
 
         <div v-if="isLoading" class="w-full text-center mt-16">
@@ -45,7 +45,7 @@
 
         <div v-if="!isLoading && hasError" class="w-full text-center mt-16">
           <font-awesome-icon
-            class=" text-red-500 text-3xl"
+            class="text-red-500 text-3xl"
             :icon="['fal', 'times-circle']"
           ></font-awesome-icon>
           <div class="font-brand text-red-500 text-xl mt-4">
@@ -146,17 +146,34 @@
               v-text="`Gewicht: ${totalCartWeight}kg`"
             ></div>
           </div>
-          <div class="mt-8">
+
+          <div class="mt-4">
             <p class="text-gray-300 p-4 font-sans">
               Damit du auch genau weißt, wie viel Bargeld du mitbringen musst,
               kannst du hier eine Vorauswahl mit deinen gewünschten Mengen
               treffen und du bekommst Preis und Gewicht sofort ausgerechnet.
             </p>
             <p
-              class="text-right font-brand text-2xl p-4 pl-8 text-brand font-medium italic"
+                class="text-right font-brand text-2xl p-4 pl-8 text-brand font-medium italic"
             >
               So einfach war es noch nie!
             </p>
+          </div>
+
+          <div class="mt-8">
+            <h3 class="font-brand text-2xl text-white font-medium">
+              Bestellung per SMS
+            </h3>
+            <div class="text-gray-300 p-4 font-sans">
+              <p>Tätige deine Bestellung ganz bequem in 3 Schritten per SMS:</p>
+              <ol class="list-decimal mt-3 pl-8 space-y-1">
+                <li>Wähle Gerichte und Getränke in deiner gewünschten Menge aus.</li>
+                <li>
+                  <a v-clipboard="() => orderText" class="text-brand font-bold cursor-pointer hover:text-brand hover:underline">Klicke hier</a>, um deine Auswahl zu kopieren.
+                </li>
+                <li>Schicke uns deine Bestellung unter Angabe deines Namens per SMS an die <span class="text-brand font-bold">1822-76770759</span>.</li>
+              </ol>
+            </div>
           </div>
         </div>
       </div>
@@ -280,6 +297,20 @@ export default {
   computed: {
     cartEmpty() {
       return this.cart.length <= 0;
+    },
+
+    orderText() {
+      let text = "Meine Bestellung\n---------------------------------------------------------------------------------------------\n";
+      this.cart.forEach(cartItem => {
+        text += `${cartItem.amount}x ${cartItem.meal.product.name} à ${this.$formatCurrency.format(cartItem.price / 100)} (${this.$formatCurrency.format(cartItem.price * cartItem.amount / 100)})\n`;
+      });
+      text += `---------------------------------------------------------------------------------------------\n`
+      text += "Gesamtpreis: "
+          + this.$formatCurrency.format(this.totalCartAmount / 100)
+          + "\n";
+      text += `---------------------------------------------------------------------------------------------\n`
+
+      return text;
     },
 
     meals() {

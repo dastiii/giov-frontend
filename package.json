@@ -25,6 +25,7 @@
     "sass": "^1.32.8",
     "sass-loader": "^11.0.1",
     "tailwindcss": "^2.0.3",
+    "v-clipboard": "^2.2.3",
     "v-tooltip": "^2.1.2",
     "vue": "^2.6.11",
     "vue-load-image": "^0.1.12",

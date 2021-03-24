@@ -8,7 +8,9 @@ import axios from "axios";
 import "./icons";
 import VueScreen from "vue-screen";
 import VTooltip from "v-tooltip";
+import Clipboard from 'v-clipboard';
 
+Vue.use(Clipboard);
 Vue.use(VTooltip);
 
 Vue.config.productionTip = false;

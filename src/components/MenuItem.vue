@@ -9,7 +9,7 @@
       <div class="truncate font-semibold" v-text="meal.product.name"></div>
       <div
         class="truncate text-gray-400 font-light italic text-sm"
-        v-text="meal.product.tags.join(', ')"
+        v-text="meal.product.tags ? meal.product.tags.join(', ') : ''"
       ></div>
     </div>
     <div class="font-medium">
@@ -40,6 +40,7 @@
           }"
         >
           <font-awesome-icon
+            tabindex="-1"
             class="outline-none"
             :class="{
               'cursor-pointer': meal.graduated_prices.length > 0

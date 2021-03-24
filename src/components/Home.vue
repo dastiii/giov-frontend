@@ -11,7 +11,7 @@
             placeholder="Bestellnummer"
             v-model="orderno"
             type="text"
-            class="font-mono text-center w-3/5 bg-gray-900 rounded-l-lg h-16 border-2 border-gray-800 focus:border-2 focus:border-brand text-gray-100 text-xl outline-none border-r-0"
+            class="font-mono text-center w-3/5 bg-gray-900 rounded-l-lg h-16 border-2 border-gray-800 focus:ring-0 focus:border-2 focus:border-brand text-gray-100 text-xl outline-none border-r-0"
             :class="hasError ? 'border border-red-500' : ''"
           /><button
             :disabled="!orderno"
