@@ -142,7 +142,7 @@
           class="pt-2 pb-2 flex flex-wrap lg:flex-no-wrap justify-between items-center"
         >
           <div
-            class="my-4 md:w-1/2 lg:w-1/3 md:my-0 text-center md:text-left order-3 md:order-1 w-full lg:w-auto"
+            class="my-4 md:w-1/2 lg:w-1/3 md:my-0 text-center md:text-left order-3 md:order-1 w-full"
           >
             <div class="lg:pl-2">
               <h5 class="font-brand text-brand text-3xl">
@@ -157,7 +157,7 @@
             </div>
           </div>
           <div
-            class="md:w-full lg:w-1/3 my-4 md:mt-8 md:mb-2 lg:my-0 self-center flex flex-col w-full order-2 md:order-3 lg:order-2 lg:w-auto"
+            class="md:w-full lg:w-1/3 my-4 md:mt-8 md:mb-2 lg:my-0 self-center flex flex-col w-full order-2 md:order-3 lg:order-2"
           >
             <div class="flex-1 flex justify-center">
               <img
@@ -168,7 +168,7 @@
             </div>
           </div>
           <div
-            class="md:w-1/2 lg:w-1/3 self-center text-center md:text-right w-full md:w-auto order-1 md:order-2 lg:order-3 my-4 md:my-0 md:mb-0"
+            class="md:w-1/2 lg:w-1/3 self-center text-center md:text-right w-full order-1 md:order-2 lg:order-3 my-4 md:my-0 md:mb-0"
           >
             <div class="lg:pr-2">
               <h4 class="text-3xl text-brand font-serif -mb-2">

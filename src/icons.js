@@ -26,7 +26,8 @@ import {
   faTimes,
   faPencil,
   faSave,
-  faPlus
+  faPlus,
+  faCaretRight
 } from "@fortawesome/pro-light-svg-icons";
 
 import { faCircle as fadCircle } from "@fortawesome/pro-duotone-svg-icons";
@@ -61,6 +62,7 @@ library.add(
   faSave,
   fadCircle,
   faPlus,
+  faCaretRight,
 );
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
