@@ -152,7 +152,7 @@
               Bestellung per SMS
             </h3>
             <div class="text-gray-300 p-4 font-sans">
-              <p>Tätige deine Bestellung ganz bequem in 3 Schritten per SMS:</p>
+              <p>Tätige deine Bestellung ganz bequem in drei Schritten per SMS:</p>
               <ol class="list-decimal my-3 pl-8 space-y-1">
                 <li>Wähle Gerichte und Getränke in deiner gewünschten Menge aus.</li>
                 <li>
@@ -163,7 +163,7 @@
                      class="text-brand font-bold cursor-pointer hover:text-brand hover:underline"
                   >Klicke hier</a>, um deine Auswahl zu kopieren.
                 </li>
-                <li>Schicke uns deine Bestellung unter Angabe deines Namens per SMS an die <span class="text-brand font-bold">1822-76770759</span>.</li>
+                <li>Schicke uns deine Bestellung unter Angabe deines Namens per SMS an die <span class="text-brand select-all">1822-76770759</span>.</li>
               </ol>
               <p>Fertig! Wir melden uns anschließend für alle weiteren Details persönlich bei dir.</p>
             </div>
@@ -309,7 +309,12 @@ export default {
     },
 
     orderText() {
-      let text = "Meine Bestellung\n---------------------------------------------------------------------------------------------\n";
+      let text = `Name: bitte ausfüllen\n`;
+      text += `Lieferart: Abholung oder Lieferung (gratis ab $500 Bestellwert, darunter pauschal $50)\n`;
+      text += `Lieferort: nur falls Lieferung gewünscht\n`;
+      text += `Gewünschter Liefer- bzw. Abholtermin: bitte ausfüllen\n`;
+      text += `---------------------------------------------------------------------------------------------\n`;
+      text += "Gewünschte Produkte\n---------------------------------------------------------------------------------------------\n";
       this.cart.forEach(cartItem => {
         text += `${cartItem.amount}x ${cartItem.meal.product.name} à ${this.$formatCurrency.format(cartItem.price / 100)} (${this.$formatCurrency.format(cartItem.price * cartItem.amount / 100)})\n`;
       });
