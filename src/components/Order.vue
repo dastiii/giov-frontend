@@ -409,7 +409,7 @@ export default {
       this.hasError = false;
 
       this.$http
-        .post("/api/orders", { orderno: this.$route.params.orderno })
+        .post("/orders", { orderno: this.$route.params.orderno })
         .then(res => {
           this.order = res.data;
           this.isLoading = false;

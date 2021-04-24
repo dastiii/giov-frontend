@@ -77,7 +77,7 @@ export default {
       this.hasError = false;
 
       this.$http
-        .post("/api/check-order", { orderno: this.orderno })
+        .post("check-order", { orderno: this.orderno })
         .then(() => {
           this.isLoading = false;
           this.redirect();

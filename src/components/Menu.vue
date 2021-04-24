@@ -84,14 +84,13 @@
                 Lade Kategorien...
               </div>
             </div>
-            <div v-else class="flex items-center pl-6 space-x-4">>
+            <div v-else class="flex items-center pl-6 space-x-4">
               <font-awesome-icon
                 class="text-red-500 text-xl"
                 :icon="['fal', 'times-circle']"
-                spin
               ></font-awesome-icon>
               <div class="font-brand text-red-500 text-xl">
-                Fehler beim Laden
+                Kategorien nicht verfügbar
               </div>
             </div>
           </div>
