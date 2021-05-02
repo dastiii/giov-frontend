@@ -178,6 +178,7 @@ import Tag from "@/components/Tag";
 import { map, union, flatten, sumBy } from "lodash";
 import MenuItem from "@/components/MenuItem";
 import CartItem from "@/components/CartItem";
+import { encode } from 'js-base64';
 
 export default {
   components: {
@@ -308,6 +309,8 @@ export default {
     },
 
     orderText() {
+      const orderCode = encode(JSON.stringify(this.cart));
+
       let text = `Name: bitte ausfüllen\n`;
       text += `Lieferart: Abholung oder Lieferung (gratis ab $500 Bestellwert, darunter pauschal $50)\n`;
       text += `Lieferort: nur falls Lieferung gewünscht\n`;
@@ -321,7 +324,13 @@ export default {
       text += "Gesamtpreis: "
           + this.$formatCurrency.format(this.totalCartAmount / 100)
           + "\n";
-      text += `---------------------------------------------------------------------------------------------\n`
+      text += `---------------------------------------------------------------------------------------------\n`;
+      text += `========== BEGIN ORDER ==========\n`;
+      text += orderCode;
+      text += `\n========== END ORDER ==========\n`;
+      text += `---------------------------------------------------------------------------------------------\n`;
+
+      console.log(atob(orderCode));
 
       return text;
     },
